@@ -1,5 +1,5 @@
 <?php 
-  $otsikko = "Esittelysivu"; 
+  $otsikko = "Testi"; 
 ?><!DOCTYPE HTML>
 <html>
 <head><title><?php echo $otsikko; ?></title></head>
