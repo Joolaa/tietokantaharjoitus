@@ -45,9 +45,11 @@
             <!--
             <li><a href="http://cstunnus.users.cs.helsinki.fi/Tietokantasovellus/index.php">Sovelluksen kirjautumissivu</a></li>
             -->
-<h2> Työn kuvaus: </h2>
-<p> Työn aiheena on logistiikka-alan työntekijöiden tuntikirjanpito ja
-työaikaseurantapalvelu. Lisää tietoa aiheesta dokumentaatiossa.</p>
         </ul>
+        <h2> Työn kuvaus: </h2>
+        <p> Työn aiheena on logistiikka-alan työntekijöiden tuntikirjanpito
+            ja työaikaseurantapalvelu. Lisää tietoa aiheesta 
+            dokumentaatiossa.
+        </p>
     </body>
 </html>
