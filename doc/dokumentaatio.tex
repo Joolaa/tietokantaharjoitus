@@ -50,10 +50,12 @@ käyttötapauksia. Ohessa on lueteltu näitä käyttötapauksia varustettuna
 lyhyillä kuvauksilla. On kuitenkin huomioitava, että kaikkia
 käyttötapauksia ei välttämättä kuitenkaan tueta lopullisessa versiossa,
 vaan nämä ovat enemmän luonnoksenomaisia.
+
 \paragraph{Jokamies:}
 \subparagraph{Järjestelmään rekisteröityminen} Käyttäjän pitää pystyä
 rekisteröitymään järjestelmän käyttäjäksi jotta voisi käyttää
 järjestelmää. Rekisteröityminen tapahtuu rekisteröitymispalvelua käyttäen.
+
 \paragraph{Johtaja:}
 \subparagraph{Yhteisön rekisteröinti} Johtaja on aina johtaja jossain
 yhteisössä. Jotta johtajalla olisi jokin yhteisö jota johtaa, täytyy
@@ -72,6 +74,7 @@ mahdollista.
 \subparagraph{Laskun luonti} Johtajalle olisi hyödyllistä, jos asiakkaan
 tuntitaksatietojen sekä työntekijöiden lisäämien työaikatietojen pohjalta
 voisi automaattisesti luoda laskun.
+
 \paragraph{Työntekijä:}
 \subparagraph{Yhteisöön liittyminen} Työntekijän täytyy pystyä liittyä
 yhteisöön, johon johtaja on hänet kutsunut.
@@ -84,5 +87,18 @@ tuntitaksoja. Toisaalta täytyy kuitenkin olla mahdollista kirjata
 järjestelmään jos aika käytettiin johonkin muuhun kun asiakkaalle
 työskentelyyn, esimerkiksi auton viemiseen huoltoon tai jos asiakas oli
 joku, jota ei löydy valikosta.
+
+\subsection{Käyttötapauskaavio} Ohessa käyttötapaukset kuvattuna
+graafisesti.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{graafi.png}
+    \caption{\small Jos käyttötapaus on riippuvainen jostain toisesta
+    käyttötapauksesta, se on merkitty katkoviivanuolella. Kaikki
+käyttötapaukset ovat riippuvaisia rekisteröitymisestä, vaikka sitä
+ei ole merkitty nuolella.}
+\end{figure}
+
 
 \end{document}
