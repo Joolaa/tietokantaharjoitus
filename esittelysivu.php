@@ -51,5 +51,6 @@
             ja työaikaseurantapalvelu. Lisää tietoa aiheesta 
             dokumentaatiossa.
         </p>
+<a href="html-demo/index.html"> Demoversio sivuista</a>
     </body>
 </html>
