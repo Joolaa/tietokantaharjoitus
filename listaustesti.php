@@ -17,7 +17,7 @@ $lista = Yhteiso::etsiKaikkiYhteisot();
 <?php foreach($lista as $yhteiso) { ?>
 <tr>
 <td><?php echo $yhteiso->getID(); ?></td>
-<td><?php echo $yhteiso->getNimi()); ?></td>
+<td><?php echo $yhteiso->getNimi(); ?></td>
 </tr>
 <?php } ?>
 </table>
