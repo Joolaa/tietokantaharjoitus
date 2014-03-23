@@ -1,5 +1,5 @@
-INSERT INTO yhteiso (nimi)
-VALUES ("Yritys OY");
+INSERT INTO yhteiso (id, nimi)
+VALUES (DEFAULT, "Yritys OY");
 
-INSERT INTO yhteiso (nimi)
-VALUES ("Pikakuljetus OY");
+INSERT INTO yhteiso (id, nimi)
+VALUES (DEFAULT, "Pikakuljetus OY");
