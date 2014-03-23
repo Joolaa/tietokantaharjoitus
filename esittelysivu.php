@@ -52,5 +52,6 @@
             dokumentaatiossa.
         </p>
 <a href="html-demo/index.html"> Demoversio sivuista</a>
+<a href="listaustesti.php">Tietokantadatan listaustestisivu</a>
     </body>
 </html>
