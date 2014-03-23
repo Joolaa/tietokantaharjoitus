@@ -16,3 +16,8 @@ div.shiftedtext {
     width: 30%;
     float: left;
 }
+
+.tableelem {
+    width: 75%;
+    margin: 0 auto;
+}

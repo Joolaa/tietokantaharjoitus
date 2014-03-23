@@ -22,7 +22,8 @@
         </ul>
         </nav>
         <div class="rightelem">
-            <a href="#" class="btn btn-primary">Kirjaa työtunteja</a>
+            <a href="tyotkirjaaminen.html" 
+                class="btn btn-primary">Kirjaa työtunteja</a>
         </div>
         <div class="shiftedtext" style="width: 30%">
             <p>Suodata:</p>
@@ -57,18 +58,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="dropdown">
-                    <button class="btn dropdown-toggle"
-                        type="button"
-                        data-toggle="dropdown">
-                        Yhteisölle
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><p>Yritys OY</p></li>
-                        <li><p>Pikakuljetus OY</p></li>
-                    </ul>
-                </div>
+                <select>
+                    <option selected="Yhteisölle">Yhteisölle:</option>
+                    <option value="yritysoy">Yritys OY</option>
+                    <option value="pikakuljetusoy">Pikakuljetus OY</option>
+                </select>
             </div>
             <div class="row">
                 <a href="tyottarkastelu.html" class="btn btn-default">
@@ -76,5 +70,30 @@
                 </a>
             </div>
         </div>
+        <div class="row tableelem">
+        <div class="panel panel-default">
+            <div class="panel-heading">Kirjatut työtunnit:</div>
+            <table class="table">
+                <tr>
+                    <th>Mistä?</th>
+                    <th>Mihin?</th>
+                    <th>Tunteja</th>
+                    <th>Asiakas/Aihe</th>
+                </tr>
+                <tr>
+                    <td>1.03.14 13:45</td>
+                    <td>1.03.14 14:45</td>
+                    <td>1</td>
+                    <td>Ruoka OY</td>
+                </tr>
+                <tr>
+                    <td>2.03.14 23:37</td>
+                    <td>3.03.14 02:43</td>
+                    <td>3</td>
+                    <td>Rakennus OY</td>
+                </tr>
+            </table>
+        </div>
+    </div>
     </body>
 </html>
