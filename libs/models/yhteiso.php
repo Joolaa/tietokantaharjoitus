@@ -41,4 +41,5 @@ class Yhteiso {
         }
 
         return $tulokset;
+    }
 }
