@@ -93,12 +93,98 @@ graafisesti.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\textwidth]{graafi.png}
+    \includegraphics[width=1\textwidth]{graafi.png}
     \caption{\small Jos käyttötapaus on riippuvainen jostain toisesta
     käyttötapauksesta, se on merkitty katkoviivanuolella. Kaikki
 käyttötapaukset ovat riippuvaisia rekisteröitymisestä, vaikka sitä
 ei ole merkitty nuolella.}
 \end{figure}
+\newpage
 
+\section{Järjestelmän tietosisältö}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{maarittelykaavio.png}
+    \caption{\small Alustava tietokohteita hahmotteleva kaavio.}
+\end{figure} 
+
+\subsection{Työaikadata}
+
+\begin{center}
+\begin{tabular}{| l | l | l |}
+    \hline
+    \emph{Attribuutti} & \emph{Tyyppi} & \emph{Kuvaus} \\ \hline
+    Alku & timestamp & Työtapahtuman alkamisaika \\ \hline
+    Loppu & timestamp & Työtapahtuman loppumisaika \\ \hline
+    Aihe & string & Tekstikuvaus työtapahtumasta \\ \hline
+\end{tabular}
+\end{center}
+
+Työaikadataan saattaa liittyä yksi asiakas. Työaikadataan liittyy yksi
+työntekijä. Työaikadata liittyy johonkin yhteisöön.
+
+\subsection{Työntekijä}
+\begin{center}
+\begin{tabular}{| l | l | l |}
+    \hline
+    \emph{Attribuutti} & \emph{Tyyppi} & \emph{Kuvaus} \\ \hline
+    Etunimi & string & Työntekijän etunimi \\ \hline
+    Sukunimi & string & Työntekijän sukunimi \\ \hline
+\end{tabular}
+\end{center}
+
+Työntekijä voi kuulua moneen yhteisöön ja työntekijään voi liittyä
+monta työaikadatapistettä.
+
+\subsection{Yhteisö}
+\begin{center}
+\begin{tabular}{| l | l | l |}
+    \hline
+    \emph{Attribuutti} & \emph{Tyyppi} & \emph{Kuvaus} \\ \hline
+    Nimi & string & Yhteisön nimi \\ \hline
+\end{tabular}
+\end{center}
+
+Yhteisöön voi kuulua useita asiakkaita. Yhteisöllä voi olla useita
+jäseniä, joista useat voivat olla johtajia. Yhteisöön voi liittyä
+useita eri työaikadatapisteitä, joita yhteisön jäsenet ovat kirjanneet
+järjestelmään. Yhteisö viittaa työyhteisöön joka käytännössä on usein
+jokin kuljetusyritys. Tietokohteen nimi ei kuitenkaan ole yritys siksi,
+koska esimerkiksi samalla yrityksellä voi olla palvelussa useita eri 
+yhteisöjä.
+
+\subsection{Yhteisön johtaja}
+Johtaja on käyttäjä, jolla on yhteisönjohtamisetuoikeudet. Johtaja pääsee
+käsiksi kaikkiin yhteisöön liittyviin tietoihin, joihin lukeutuvat
+esimerkiksi asiakkaiden oletustuntitaksat sekä yhteisön jäsenten 
+kirjaamat tunnit. Käyttäjä voi olla usean eri yhteisön johtaja.
+
+\subsection{Asiakas}
+\begin{center}
+\begin{tabular}{| l | l | l |}
+    \hline
+    \emph{Attribuutti} & \emph{Tyyppi} & \emph{Kuvaus} \\ \hline
+    Nimi & string & Asiakkaan nimi, käytännössä jonkin yrityksen nimi \\
+    \hline
+    Oletustuntitaksa & decimal & Asiakkaan oletustuntitaksa euroissa \\
+    \hline
+\end{tabular}
+\end{center}
+
+Asiakas kuuluu vain yhteen yhteisöön, siitä huolimatta että käytännössä
+sama asiakas saattaa tilata palveluja usealta eri työyhteisöltä. Tämä
+siksi koska tuntitaksat saattavat kuitenkin vaihdella eri työyhteisöillä,
+joten on helpompaa toteuttaa asiakkaan ja yhteisön yhteys näin. 
+Asiakas voi liittyä työaikadataan, mutta se tapahtuu välillisesti
+yhteisön kautta.
+
+\newpage
+\section{Relaatiotietokantakaavio}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1\textwidth]{relaatiokaavio.png}
+    \caption{\small Alustava kaavio jossa on graafisesti hahmoteltuna
+    relaatiotietokannan taulut ja niiden yhteydet}
+\end{figure}
 
 \end{document}
