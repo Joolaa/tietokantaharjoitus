@@ -1,5 +1,5 @@
 <?php
-require 'tietokantayhteys.php';
+require_once 'tietokantayhteys.php';
 
 class Yhteiso {
 
