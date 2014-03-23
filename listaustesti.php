@@ -16,8 +16,8 @@ $lista = Yhteiso::etsiKaikkiYhteisot();
     </tr>
 <?php foreach($lista as $yhteiso) { ?>
 <tr>
-<td><?php echo $yhteiso->id; ?></td>
-<td><?php echo $yhteiso->nimi; ?></td>
+<td><?php echo $yhteiso->getID(); ?></td>
+<td><?php echo $yhteiso->getNimi()); ?></td>
 </tr>
 <?php } ?>
 </table>
