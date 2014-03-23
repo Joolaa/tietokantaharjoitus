@@ -1,7 +1,7 @@
 <?php
 
 require_once "libs/tietokantayhteys.php";
-require_once "libs/models/yhteiso.php";
+require_once "libs/yhteiso.php";
 
 $lista = Yhteiso::etsiKaikkiYhteisot();
 ?>
