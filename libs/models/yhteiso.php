@@ -19,6 +19,14 @@ class Yhteiso {
         return $this->nimi;
     }
 
+    public function setID($id) {
+        $this->id = $id;
+    }
+
+    public function setNimi($nimi) {
+        $this->nimi = $nimi;
+    }
+
     public static function etsiKaikkiYhteisot() {
         $sql = "SELECT id, nimi FROM yhteiso";
         $kysely = getTietokantayhteys()->prepare($sql);
@@ -26,7 +34,9 @@ class Yhteiso {
 
         $tulokset = array();
         foreach($kysely->fetchAll(PDO::FETCH_OBJ) as $tulos) {
-            $yhteiso = new Yhteiso($tulos->id, $tulos->nimi);
+            $yhteiso = new Yhteiso();
+            $yhteiso->setID($tulos->id);
+            $yhteiso->setNimi($tulos->nimi);
             $tulokset[] = $yhteiso;
         }
 
