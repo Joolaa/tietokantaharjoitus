@@ -12,7 +12,7 @@
         </li>
     </ul>
     <ul class="nav nav-pills navbar-right">
-        <li <?php makepillactive_pohja('login.php');?>>
+        <li <?php makepillactive_pohja('loginform.php');?>>
             <a href="#">Kirjaudu</a>
         </li>
         <li <?php makepillactive_pohja('signup.php');?>>
