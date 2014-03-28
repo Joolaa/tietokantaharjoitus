@@ -1,4 +1,10 @@
-<?php require_once 'libs/common.php'; ?>
+<?php
+    function echoUsername($obj) {
+        if(isset($obj->user) {
+            echo 'value="' . $obj->user . '"';
+        }
+    }
+?>
 <h1>Kirjaudu sisään.</h1>
 <form action="login.php" method="POST">
     <div class="row">
@@ -6,7 +12,7 @@
             <span class="input-group-addon">Sähköposti:</span>
             <input type="text" class="form-control" 
              placeholder="Kirjoita tähän" name="username"
-             <?php issetEcho($data->user, 'value="'.$data->user.'"'); ?>>
+             <?php echoUsername($data); ?>>
         </div>
     </div>
     <div class="row">
