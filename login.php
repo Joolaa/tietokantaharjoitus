@@ -1,4 +1,6 @@
 <?php
-    $page = 'login.php';
+    require_once 'libs/common.php';
+
     $title = 'Kirjautuminen';
-    require 'views/kirjautuminen.php';
+    showView('login.php', array(
+        'title' => 'Kirjautuminen'));

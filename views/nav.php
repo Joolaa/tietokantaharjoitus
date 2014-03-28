@@ -8,15 +8,15 @@
 <nav class="navbar navbar-default" role="navigation">
     <ul class="nav nav-pills navbar-left">
         <li <?php makepillactive_pohja('index.php');?>>
-            <a href="index.html">Etusivu</a>
+            <a href="#">Etusivu</a>
         </li>
     </ul>
     <ul class="nav nav-pills navbar-right">
         <li <?php makepillactive_pohja('login.php');?>>
-        <a href="kirjautuminen.html">Kirjaudu</a>
+            <a href="#">Kirjaudu</a>
         </li>
         <li <?php makepillactive_pohja('signup.php');?>>
-            <a href="rekisteroityminen.html">Rekisteröidy</a>
+            <a href="#">Rekisteröidy</a>
         </li>
     </ul>
 </nav>
