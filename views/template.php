@@ -1,6 +1,5 @@
 <?php
     require_once 'libs/common.php'; ?>
-
 <!DOCTYPE HTML>
 <html>
 <head>

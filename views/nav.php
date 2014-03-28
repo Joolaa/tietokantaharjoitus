@@ -10,6 +10,7 @@
 ?>
 
 <nav class="navbar navbar-default" role="navigation">
+<?php echo $page; ?>
     <ul class="nav nav-pills navbar-left">
         <li<?php makepillactive_pohja('index.php');?>>
             <a href="#">Etusivu</a>
