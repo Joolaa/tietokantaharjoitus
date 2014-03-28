@@ -1,6 +1,6 @@
 <?php
     function echoUsername($obj) {
-        if(isset($obj->user) {
+        if(isset($obj->user)) {
             echo 'value="' . $obj->user . '"';
         }
     }
