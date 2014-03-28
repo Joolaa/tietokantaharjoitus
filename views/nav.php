@@ -1,6 +1,7 @@
 <?php 
     function makepillactive_pohja($currentpage) {
         global $page;
+        echo $page;
         if($currentpage === $page) {
             echo 'class="active"';
         }
@@ -10,7 +11,7 @@
 <nav class="navbar navbar-default" role="navigation">
     <ul class="nav nav-pills navbar-left">
         <li <?php makepillactive_pohja('index.php');?>>
-            <a href="#">Etusivu</a>
+        <a href="<?php echo 'sdfds'; ?>">Etusivu</a>
         </li>
     </ul>
     <ul class="nav nav-pills navbar-right">
