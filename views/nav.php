@@ -1,8 +1,9 @@
 <?php 
     function makepillactive_pohja($currentpage) {
         global $page;
-        if($currentpage === $page)
+        if($currentpage === $page) {
             echo 'class="active"';
+        }
     }
 ?>
 
