@@ -7,7 +7,7 @@
     }
 
     function issetEcho($message, $var) {
-        if(isset($var) {
+        if(isset($var)) {
             echo $message;
         }
     }
