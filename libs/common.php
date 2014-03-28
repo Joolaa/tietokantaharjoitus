@@ -8,3 +8,5 @@
 
     function makeNavBar($activepage) {
         require 'views/nav.php';
+        exit();
+    }
