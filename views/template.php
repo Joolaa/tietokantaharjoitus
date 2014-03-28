@@ -11,7 +11,7 @@
     <link href="../css/main.css" rel="stylesheet">
 </head>
 <body>
-    <?php makeNavBar($page); ?>
+    <?php require 'nav.php'; ?>
     <div class=shiftedtext>
         <?php require 'views/' .$page; ?>
     </div>
