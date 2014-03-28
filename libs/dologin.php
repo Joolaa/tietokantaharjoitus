@@ -11,5 +11,6 @@
         header('Location: html-demo/index.html');
     } else {
         showView("loginform.php", array(
-            'user' => $username));
+            'user' => $username,
+        ));
     }
