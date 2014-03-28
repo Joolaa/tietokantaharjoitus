@@ -4,7 +4,8 @@
         <div class="input-group input-group-lg">
             <span class="input-group-addon">Sähköposti:</span>
             <input type="text" class="form-control" 
-             placeholder="Kirjoita tähän" name="username">
+             placeholder="Kirjoita tähän" name="username"
+             value="<?php echo $data->user; ?>">
         </div>
     </div>
     <div class="row">
