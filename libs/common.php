@@ -5,3 +5,7 @@
         require 'views/template.php';
         exit();
     }
+
+    function makeNavBar($activepage) {
+        require 'views/nav.php';
+        exit();

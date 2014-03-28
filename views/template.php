@@ -1,3 +1,6 @@
+<?php
+    require_once 'libs/common.php'; ?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -8,7 +11,7 @@
     <link href="../css/main.css" rel="stylesheet">
 </head>
 <body>
-    <?php require 'views/nav.php'; ?>
+    <?php makeNavBar($page); ?>
     <div class=shiftedtext>
         <?php require 'views/' .$page; ?>
     </div>
