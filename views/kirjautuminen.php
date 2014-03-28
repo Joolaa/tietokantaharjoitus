@@ -8,8 +8,6 @@
         <link href="../css/main.css" rel="stylesheet">
     </head>
     <body>
-        <!-- VAROITUS sisältää vähän copypastea, en saanut SSI-systeemiä
-        toimimaan-->
         <nav class="navbar navbar-default" role="navigation">
         <ul class="nav nav-pills navbar-left">
             <li><a href="index.html">Etusivu</a></li>
