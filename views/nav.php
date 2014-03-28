@@ -1,4 +1,5 @@
 <?php 
+    $activepage = $page
     function makepillactive_pohja($currentpage) {
         if($currentpage === $activepage)
             echo 'class="active"';
