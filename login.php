@@ -4,3 +4,4 @@
     $title = 'Kirjautuminen';
     showView('loginform.php', array(
         'title' => 'Kirjautuminen'));
+    require 'libs/dologin.php';
