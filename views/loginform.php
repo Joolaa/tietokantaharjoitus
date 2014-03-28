@@ -1,3 +1,4 @@
+<?php require_once 'libs/common.php'; ?>
 <h1>Kirjaudu sisään.</h1>
 <form action="login.php" method="POST">
     <div class="row">
@@ -5,7 +6,7 @@
             <span class="input-group-addon">Sähköposti:</span>
             <input type="text" class="form-control" 
              placeholder="Kirjoita tähän" name="username"
-             value="<?php echo $data->user; ?>">
+             <?php issetEcho('value="'.$data->user.'"', $data->user); ?>>
         </div>
     </div>
     <div class="row">

@@ -5,3 +5,9 @@
         require 'views/template.php';
         exit();
     }
+
+    function issetEcho($message, $var) {
+        if(isset($var) {
+            echo $message;
+        }
+    }
