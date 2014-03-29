@@ -25,12 +25,12 @@
     $password = $_POST["password"];
     
     if(Kayttaja::getUserByUsername($_POST["username"],
-                 $_POST["password"]) != null) {
-        header('Location: html-demo/index.html');
-    } else {
+                 $_POST["password"]) == false) {
         showView("loginform.php", array(
             'user' => $username,
             'title' => "Kirjautuminen",
             'error' => "Käyttäjätunnus tai salasana virheellinen."
         ));
+    } else {
+        header('Location: html-demo/index.html');
     }
