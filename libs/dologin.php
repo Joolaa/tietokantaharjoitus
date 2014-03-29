@@ -1,6 +1,6 @@
 <?php
 
-    if(empty($_POST["username"]) || empty($_POST["password"]) {
+    if(empty($_POST["username"]) || empty($_POST["password"])) {
         showView("loginform.php", array(
             'title' => "Kirjautuminen"
         ));
