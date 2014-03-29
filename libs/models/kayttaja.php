@@ -71,7 +71,8 @@ class Kayttaja {
         if($result == null) {
             return null;
         } else {
-            $user = new Kayttaja();
+            $user = new Kayttaja($result->id, $result->email,
+                $result->salasana, $result->etunimi, $result->sukunimi);
             $user->setId($result->id);
             $user->setKayttaja($result->email);
             $user->setSalasana($result->salasana);

@@ -41,10 +41,10 @@ function makepillactive_pohja($currentpage, $thispage) {
     </ul>
     <ul class="nav nav-pills navbar-right">
         <form action="libs/dologout.php" method="post">
-            <li>
+            <button type="submit">
                 Kirjaudu ulos
-                <input type="button" name="logout" value="dummy">
-            </li>
+                <input name="logout" value="dummy">
+            </button>
         </form>
     </ul>
 </nav>
