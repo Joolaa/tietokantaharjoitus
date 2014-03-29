@@ -58,7 +58,7 @@ class Kayttaja {
         $this->id = $id;
     }
 
-    public funtion echoUserFullName() {
+    public function echoUserFullName() {
         echo $this->etunimi . ' ' . $this->sukunimi;
     }
 
