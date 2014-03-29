@@ -14,11 +14,11 @@ function issetEcho($var, $message) {
 }
 
 function isLogged($user) {
-    return isset($_SESSION[$user->getId()]);
+    return isset($_SESSION['_' . $user->getId()]);
 }
 
 function logoutUser($user) {
-    unset($_SESSION[$user->getId()]);
+    unset($_SESSION['_' . $user->getId()]);
 
     header('Location: login.php');
 }
