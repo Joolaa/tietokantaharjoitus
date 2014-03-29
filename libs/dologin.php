@@ -1,4 +1,6 @@
 <?php
+require_once 'libs/models/kayttaja.php';
+
     if(empty($_POST["username"]) && empty($_POST["password"])) {
         showView("loginform.php", array(
             'title' => "Kirjautuminen"
@@ -23,7 +25,7 @@
         ));
     }
     $password = $_POST["password"];
-    
+
     if(Kayttaja::getUserByUsername($_POST["username"],
                  $_POST["password"]) == false) {
         showView("loginform.php", array(
