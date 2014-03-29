@@ -1,9 +1,6 @@
 <?php
 require_once 'common.php';
 
-if(isset($_POST['logout'])) {
-    $userid = $_POST['logout'];
-    unset($_POST['logout']);
+$userid = $_SERVER['QUERY_STRING'];
 
-    logoutUserById($userid);
-}
+logoutUserById($userid);
