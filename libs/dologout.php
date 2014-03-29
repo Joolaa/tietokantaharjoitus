@@ -1,5 +1,5 @@
 <?php
-require_once 'libs/common.php';
+require_once 'common.php';
 
 if(isset($_POST['logout'])) {
     $userid = $_POST['logout'];
