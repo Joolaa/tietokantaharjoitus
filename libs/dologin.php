@@ -1,7 +1,9 @@
 <?php
 
     if(empty($_POST["username"]) || empty($_POST["password"]) {
-        showView("loginform.php", null);
+        showView("loginform.php", array(
+            'title' => "Kirjautuminen"
+        ));
     }
 
     $username = $_POST["username"];
@@ -12,5 +14,6 @@
     } else {
         showView("loginform.php", array(
             'user' => $username,
+            'title' => "Kirjautuminen"
         ));
     }
