@@ -1,6 +1,6 @@
 <?php
 
-    if(empty($_POST["username"])) {
+    if(empty($_POST["username"]) && isset($_POST["password"])) {
         showView("loginform.php", array(
             'title' => "Kirjautuminen",
             'error' => "Unohdit antaa käyttäjätunnuksen."
@@ -8,9 +8,10 @@
     }
     $username = $_POST["username"];
 
-    if(empty($_POST["password"])) {
+    if(empty($_POST["password"]) && isset($_POST["username"])) {
         showView("loginform.php", array(
             'title' => "Kirjautuminen",
+            'user' => $username,
             'error' => "Unohdit antaa salasanan."
         ));
     }
