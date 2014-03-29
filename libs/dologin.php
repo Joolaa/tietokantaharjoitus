@@ -21,7 +21,7 @@ require_once 'libs/common.php';
     if(empty($_POST["password"])) {
         showView("loginform.php", array(
             'title' => "Kirjautuminen",
-            'user' => $username,
+            'username' => $username,
             'error' => "Unohdit antaa salasanan."
         ));
     }
@@ -31,7 +31,7 @@ require_once 'libs/common.php';
         $_POST["password"]);
     if($user == false) {
         showView("loginform.php", array(
-            'user' => $username,
+            'username' => $username,
             'title' => "Kirjautuminen",
             'error' => "Käyttäjätunnus tai salasana virheellinen."
         ));

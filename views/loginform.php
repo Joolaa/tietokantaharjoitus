@@ -1,7 +1,7 @@
 <?php
     function echoUsername($obj) {
         if(isset($obj->user)) {
-            echo 'value="' . $obj->user . '"';
+            echo 'value="' . $obj->username . '"';
         }
     }
 ?>
