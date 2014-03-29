@@ -6,7 +6,6 @@
     }
 ?>
 <h1>Kirjaudu sisään.</h1>
-<p> <?php $_POST["password"] ?> </p>
 <form action="login.php" method="POST">
     <?php require 'alerttempl.php'; ?>
     <div class="row">
