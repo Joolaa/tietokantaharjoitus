@@ -1,4 +1,4 @@
-<?php if(isset($data->error)): ?>
+<?php if(isset($data->error) && $data->error !== ''): ?>
     <div class="alert alert-danger">
         <?php echo $data->virhe; ?>
     </div>
