@@ -1,6 +1,7 @@
 <?php
-if(isset($_POST['logout']) && isset($data->user)) {
-    unset($_POST['logout']);
+if(isset($_POST['logout']) {
+    $userid = $_POST['logout'];
+    unset($_POST['logout'];
 
-    logoutUser($data->user);
+    logoutUserById($userid);
 }

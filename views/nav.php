@@ -43,7 +43,7 @@ function makepillactive_pohja($currentpage, $thispage) {
         <form action="libs/dologout.php" method="post">
             <button type="submit">
                 Kirjaudu ulos
-                <input name="logout" value="dummy">
+                <input name="logout" value="<?php $data->user->getId() ?>">
             </button>
         </form>
     </ul>

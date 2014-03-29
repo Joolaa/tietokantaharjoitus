@@ -22,3 +22,8 @@ function logoutUser($user) {
 
     header('Location: login.php');
 }
+
+function logoutUserById($userid) {
+    unset($_SESSION['_' . $userid]);
+    header('Location: login.php');
+}
