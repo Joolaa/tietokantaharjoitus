@@ -8,6 +8,7 @@
 <h1>Kirjaudu sisään.</h1>
 <p> <?php $_POST["password"] ?> </p>
 <form action="login.php" method="POST">
+    <?php require 'alerttempl.php'; ?>
     <div class="row">
         <div class="input-group input-group-lg">
             <span class="input-group-addon">Sähköposti:</span>

@@ -2,7 +2,8 @@
 
     if(empty($_POST["username"]) || empty($_POST["password"])) {
         showView("loginform.php", array(
-            'title' => "Kirjautuminen"
+            'title' => "Kirjautuminen",
+            'error' => "Unohdit antaa käyttäjätunnuksen."
         ));
     }
 
@@ -15,5 +16,6 @@
         showView("loginform.php", array(
             'user' => $username,
             'title' => "Kirjautuminen"
+            'error' => "Käyttäjätunnus tai salasana virheellinen."
         ));
     }
