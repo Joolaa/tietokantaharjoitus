@@ -41,7 +41,9 @@ function makepillactive_pohja($currentpage, $thispage) {
     </ul>
     <ul class="nav nav-pills navbar-right">
         <li>
-            <a href="../libs/dologout.php?<?php $data->user->getId(); ?>">
+            <a href="
+                <?php echo '../libs/dologout.php?'.$data->user->getId(); ?>
+            ">
                 Kirjaudu ulos
             </a>
         </li>
