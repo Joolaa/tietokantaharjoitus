@@ -15,7 +15,7 @@
     } else {
         showView("loginform.php", array(
             'user' => $username,
-            'title' => "Kirjautuminen"
+            'title' => "Kirjautuminen",
             'error' => "Käyttäjätunnus tai salasana virheellinen."
         ));
     }
