@@ -1,5 +1,6 @@
 <?php
 require_once 'libs/models/kayttaja.php';
+require_once 'libs/common.php';
 
     if(empty($_POST["username"]) && empty($_POST["password"])) {
         showView("loginform.php", array(
@@ -26,13 +27,19 @@ require_once 'libs/models/kayttaja.php';
     }
     $password = $_POST["password"];
 
-    if(Kayttaja::getUserByUsername($_POST["username"],
-                 $_POST["password"]) == false) {
+    $user = Kayttaja::getUserByUsername($_POST["username"],
+        $_POST["password"]);
+    if($user == false) {
         showView("loginform.php", array(
             'user' => $username,
             'title' => "Kirjautuminen",
             'error' => "Käyttäjätunnus tai salasana virheellinen."
         ));
     } else {
-        header('Location: html-demo/index.html');
+        $_SESSION[$user->getId()] = $user;
+
+        showView("loggedintest.php", array(
+            'user' => $user,
+            'title' => "Olet kirjautunut"
+        ));
     }

@@ -58,6 +58,10 @@ class Kayttaja {
         $this->id = $id;
     }
 
+    public funtion echoUserFullName() {
+        echo $this->etunimi . ' ' . $this->sukunimi;
+    }
+
     public static function getUserByUsername($kayttaja, $salasana) {
         $sql = "SELECT id, email, salasana, etunimi, sukunimi FROM Kayttaja WHERE email = ? AND salasana = ? LIMIT 1";
         $query = getTietokantayhteys()->prepare($sql);
