@@ -24,7 +24,8 @@
     }
     $password = $_POST["password"];
     
-    if(isset(Kayttaja::getUserByUsername($username, $password))) {
+    if(isset(Kayttaja::getUserByUsername($_POST["username"],
+                 $_POST["password"]))) {
         header('Location: html-demo/index.html');
     } else {
         showView("loginform.php", array(
