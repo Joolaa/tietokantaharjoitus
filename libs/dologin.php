@@ -25,7 +25,7 @@
     $password = $_POST["password"];
     
     if(Kayttaja::getUserByUsername($_POST["username"],
-                 $_POST["password"]) == false) {
+                 $_POST["password"]) != null) {
         header('Location: html-demo/index.html');
     } else {
         showView("loginform.php", array(
