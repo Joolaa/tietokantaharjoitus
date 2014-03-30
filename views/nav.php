@@ -38,7 +38,7 @@ function makepillactive_pohja($currentpage, $thispage) {
     <ul class="nav nav-pills navbar-left">
         <li>
             <a href="#">
-                <?php $_SESSION['logged']->echoUserFullName(); ?>
+                <?php $data->user->echoUserFullName(); ?>
             </a>
         </li>
     </ul>
