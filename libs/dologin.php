@@ -36,10 +36,9 @@ require_once 'libs/common.php';
             'error' => "Käyttäjätunnus tai salasana virheellinen."
         ));
     } else {
-        $_SESSION['_' . $user->getId()] = $user;
+        $_SESSION['logged'] = $user;
 
         showView("loggedintest.php", array(
-            'user' => $user,
             'title' => "Olet kirjautunut"
         ));
     }

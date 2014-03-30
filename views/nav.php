@@ -11,7 +11,7 @@ function makepillactive_pohja($currentpage, $thispage) {
 }
 ?>
 
-<?php if(empty($data->user) || !isLogged($data->user)): ?>
+<?php if(empty($_SESSION) || empty($_SESSION['logged']): ?>
 <nav class="navbar navbar-default" role="navigation">
     <ul class="nav nav-pills navbar-left">
         <li<?php makepillactive_pohja('index.php', $page);?>>
@@ -35,15 +35,13 @@ function makepillactive_pohja($currentpage, $thispage) {
     <ul class="nav nav-pills navbar-left">
         <li>
             <a href="#">
-                <?php $data->user->echoUserFullName() ?>
+                <?php $_SESSION['logged']->echoUserFullName() ?>
             </a>
         </li>
     </ul>
     <ul class="nav nav-pills navbar-right">
         <li>
-            <a href="
-                <?php echo '../libs/dologout.php?'.$data->user->getId(); ?>
-            ">
+            <a href="libs/dologout.php">
                 Kirjaudu ulos
             </a>
         </li>
