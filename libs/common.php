@@ -17,12 +17,6 @@ function isLogged($user) {
     return isset($_SESSION['_' . $user->getId()]);
 }
 
-function logoutUser($user) {
-    unset($_SESSION['_' . $user->getId()]);
-
-    header('Location: login.php');
-}
-
 function logoutUser() {
     unset($_SESSION['logged']);
     header('Location: ../login.php');
