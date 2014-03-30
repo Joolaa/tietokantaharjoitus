@@ -11,7 +11,7 @@ function makepillactive_pohja($currentpage, $thispage) {
 }
 ?>
 
-<?php if(empty($_SESSION) || empty($_SESSION['logged']): ?>
+<?php if(empty($_SESSION) || empty($_SESSION['logged'])): ?>
 <nav class="navbar navbar-default" role="navigation">
     <ul class="nav nav-pills navbar-left">
         <li<?php makepillactive_pohja('index.php', $page);?>>
