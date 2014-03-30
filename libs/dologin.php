@@ -1,7 +1,15 @@
 <?php
 require_once 'libs/models/kayttaja.php';
 require_once 'libs/common.php';
+    
+    if(isset($_SESSION['logged']) {
+        $user = Kayttaja::getUserById($_SESSION['logged']);
 
+        showView("loggedintest.php", array(
+            'title' => "Olet kirjautunut",
+            'user' => $user
+        ));
+    }
     if(empty($_POST["username"]) && empty($_POST["password"])) {
         showView("loginform.php", array(
             'title' => "Kirjautuminen"
@@ -36,9 +44,10 @@ require_once 'libs/common.php';
             'error' => "Käyttäjätunnus tai salasana virheellinen."
         ));
     } else {
-        $_SESSION['logged'] = $user;
+        $_SESSION['logged'] = $user->getId();
 
         showView("loggedintest.php", array(
-            'title' => "Olet kirjautunut"
+            'title' => "Olet kirjautunut",
+            'user' => $user
         ));
     }

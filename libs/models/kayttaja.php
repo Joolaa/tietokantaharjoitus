@@ -82,4 +82,24 @@ class Kayttaja {
             return $user;
         }
     }
+    public static function getUserById($id) {
+        $sql = "SELECT id, email, salasana, etunimi, sukunimi FROM Kayttaja WHERE id = ? LIMIT 1";
+        $query = getTietokantayhteys()->prepare($sql);
+        $query->execute(array($id));
+
+        $result = $query->fetchObject();
+        if($result == null) {
+            return null;
+        } else {
+            $user = new Kayttaja($result->id, $result->email,
+                $result->salasana, $result->etunimi, $result->sukunimi);
+            $user->setId($result->id);
+            $user->setKayttaja($result->email);
+            $user->setSalasana($result->salasana);
+            $user->setEtunimi($result->etunimi);
+            $user->setSukunimi($result->sukunimi);
+
+            return $user;
+        }
+    }
 }

@@ -27,7 +27,10 @@ function makepillactive_pohja($currentpage, $thispage) {
         </li>
     </ul>
 </nav>
-<?php else: ?>
+<?php else: 
+        if(empty($data->user) {
+            $data->user = Kayttaja::getUserById($_SESSION['logged']);
+        }?>
 <nav class="navbar navbar-default" role="navigation">
     <ul class="navbar-left">
         <p>Kirjautuneena: </p>
