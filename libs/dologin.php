@@ -2,7 +2,7 @@
 require_once 'libs/models/kayttaja.php';
 require_once 'libs/common.php';
     
-    if(isset($_SESSION['logged']) {
+    if(isset($_SESSION['logged'])) {
         $user = Kayttaja::getUserById($_SESSION['logged']);
 
         showView("loggedintest.php", array(
