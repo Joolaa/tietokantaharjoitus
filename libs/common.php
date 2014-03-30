@@ -13,8 +13,8 @@ function issetEcho($var, $message) {
     }
 }
 
-function isLogged($user) {
-    return isset($_SESSION['_' . $user->getId()]);
+function isLogged() {
+    return isset($_SESSION['logged']);
 }
 
 function logoutUser() {
