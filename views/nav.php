@@ -28,7 +28,7 @@ function makepillactive_pohja($currentpage, $thispage) {
     </ul>
 </nav>
 <?php else: 
-        if(empty($data->user) {
+        if(empty($data->user)) {
             $data->user = Kayttaja::getUserById($_SESSION['logged']);
         }?>
 <nav class="navbar navbar-default" role="navigation">
