@@ -27,12 +27,9 @@ function manageLogin($username, $password) {
 
 
 if(isLogged()) {
-    $user = Kayttaja::getUserById($_SESSION['logged']);
 
-    showView("profile.php", array(
-        'title' => "Sinun profiilisi",
-        'user' => $user
-    ));
+    header('Location: profile.php');
+    exit();
 }
 
 $fields = manageLogin($_POST["username"], $_POST["password"]);
