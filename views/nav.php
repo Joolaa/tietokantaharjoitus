@@ -20,7 +20,7 @@ function makepillactive_pohja($currentpage, $thispage) {
     </ul>
     <ul class="nav nav-pills navbar-right">
         <li<?php makepillactive_pohja('loginform.php', $page);?>>
-            <a href="#">Kirjaudu</a>
+            <a href="../login.php">Kirjaudu</a>
         </li>
         <li<?php makepillactive_pohja('signup.php', $page);?>>
             <a href="#">Rekisteröidy</a>

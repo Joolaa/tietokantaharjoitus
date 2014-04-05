@@ -44,10 +44,7 @@ if(!is_null($fields)) {
 $username = $_POST["username"];
 $password = $_POST["password"];
 
-
-$user = Kayttaja::getUserByUsername($username, $password);
-
-if($user == false) {
+if(!Kayttaja::checkLogin($username, $password) {
     showView("loginform.php", array(
         'username' => $username,
         'title' => "Kirjautuminen",

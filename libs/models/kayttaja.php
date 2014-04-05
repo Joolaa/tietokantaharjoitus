@@ -62,6 +62,16 @@ class Kayttaja {
         echo $this->etunimi . ' ' . $this->sukunimi;
     }
 
+    public static function checkLogin($kayttaja, $salasana) {
+        $sql = "SELECT email, salasana FROM Kayttaja WHERE email = ? LIMIT 1";
+        $query = getTietokantayhteys()->prepare($sql);
+        $query->execute(array($kayttaja));
+        
+        $result = $query->fetchObject();
+
+        return strcmp($salasana, $result->salasana);
+    }
+
     public static function getUserByUsername($kayttaja, $salasana) {
         $sql = "SELECT id, email, salasana, etunimi, sukunimi FROM Kayttaja WHERE email = ? AND salasana = ? LIMIT 1";
         $query = getTietokantayhteys()->prepare($sql);
