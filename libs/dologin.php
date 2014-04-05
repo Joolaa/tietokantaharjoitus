@@ -55,5 +55,5 @@ if(is_null($userid)) {
 } else {
     $_SESSION['logged'] = $userid;
 
-    header('Location: ../profile.php');
+    header('Location: profile.php');
 }
