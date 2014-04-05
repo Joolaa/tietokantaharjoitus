@@ -1,10 +1,13 @@
 <?php
 
-isLoggedDirectToLogin(null);
+if(isLogged()) {
 
-$user = Kayttaja::getUserById($_SESSION['logged']);
+    $user = Kayttaja::getUserById($_SESSION['logged']);
 
-showView('profileview.php', array(
-    'title' => "Sinun profiilisi",
-    'user' => $user
-));
+    showView('profileview.php', array(
+        'title' => "Sinun profiilisi",
+        'user' => $user
+    ));
+}
+
+header('Location: ../login.php');
