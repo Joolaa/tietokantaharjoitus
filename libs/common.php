@@ -17,6 +17,16 @@ function isLogged() {
     return isset($_SESSION['logged']);
 }
 
+function isLoggedDirectToLogin() {
+
+    if(isset($_SESSION['logged'])) {
+        return true;
+    }
+
+    header('Location: ../login.php');
+    return false;
+}
+
 function logoutUser() {
     unset($_SESSION['logged']);
     header('Location: ../login.php');
