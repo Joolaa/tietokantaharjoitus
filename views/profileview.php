@@ -1,5 +1,5 @@
 <div class=rightelem>
-    <a class="btn btn-primary" href="#">
+    <a class="btn btn-primary" href="../hours.php">
         Tarkastele työtunteja
     </a>
     <a class="btn btn-primary" href="#">

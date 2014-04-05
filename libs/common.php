@@ -37,3 +37,7 @@ function logoutUser() {
     unset($_SESSION['logged']);
     header('Location: ../login.php');
 }
+
+function echoFormatDateFinnish($datetime) {
+    echo date_format($datetime, H:i d.m.Y);
+}
