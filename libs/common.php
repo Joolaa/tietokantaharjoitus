@@ -20,6 +20,9 @@ function isLogged() {
 function isLoggedDirectToLogin(&$pagedata) {
 
     if(isset($_SESSION['logged'])) {
+        if(is_null($pagedata)) {
+            return true;
+        }
         if(!property_exists($pagedata, 'user')) {
             $pagedata->user = Kayttaja::getUserById($_SESSION['logged']);
         }

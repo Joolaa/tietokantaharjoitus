@@ -55,7 +55,5 @@ if(is_null($userid)) {
 } else {
     $_SESSION['logged'] = $userid;
 
-    showView("profile.php", array(
-        'title' => "Sinun profiilisi",
-    ));
+    header('Location: ../profile.php');
 }
