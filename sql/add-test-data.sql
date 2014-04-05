@@ -1,5 +1,6 @@
 ALTER TABLE tyoaikadata
-DROP COLUMN Asiakas_id, Yhteiso_id;
+DROP COLUMN Asiakas_id
+DROP COLUMN Yhteiso_id;
 INSERT INTO yhteiso (id, nimi)
 VALUES (DEFAULT, 'Yritys OY');
 
