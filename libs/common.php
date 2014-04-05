@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'models/kayttaja.php';
 
 function showView($page, $data = array()) {
     $data = (object) $data;
@@ -14,12 +15,15 @@ function issetEcho($var, $message) {
 }
 
 function isLogged() {
-    return isset($_SESSION['logged']);
+    return !empty($_SESSION['logged']);
 }
 
-function isLoggedDirectToLogin() {
+function isLoggedDirectToLogin(&$pagedata) {
 
     if(isset($_SESSION['logged'])) {
+        if(!property_exists($pagedata, 'user')) {
+            $pagedata->user = Kayttaja::getUserById($_SESSION['logged']);
+        }
         return true;
     }
 

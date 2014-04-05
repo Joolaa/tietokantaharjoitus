@@ -29,8 +29,8 @@ function manageLogin($username, $password) {
 if(isset($_SESSION['logged'])) {
     $user = Kayttaja::getUserById($_SESSION['logged']);
 
-    showView("loggedintest.php", array(
-        'title' => "Olet kirjautunut",
+    showView("profile.php", array(
+        'title' => "Sinun profiilisi",
         'user' => $user
     ));
 }
@@ -56,8 +56,8 @@ if($user == false) {
 } else {
     $_SESSION['logged'] = $user->getId();
 
-    showView("loggedintest.php", array(
-        'title' => "Olet kirjautunut",
+    showView("profile.php", array(
+        'title' => "Sinun profiilisi",
         'user' => $user
     ));
 }
