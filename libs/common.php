@@ -20,9 +20,8 @@ function isLogged() {
 function isLoggedDirectToLogin() {
 
     if(isset($_SESSION['logged'])) {
-        return Kayttaja::getUserByUserId($_SESSION['logged']);
+        return Kayttaja::getUserById($_SESSION['logged']);
     }
-
     header('Location: ../login.php');
     exit();
     return null;
