@@ -26,7 +26,7 @@ function manageLogin($username, $password) {
 }
 
 
-if(isset($_SESSION['logged'])) {
+if(isLogged())) {
     $user = Kayttaja::getUserById($_SESSION['logged']);
 
     showView("profile.php", array(
@@ -56,4 +56,5 @@ if(is_null($userid)) {
     $_SESSION['logged'] = $userid;
 
     header('Location: profile.php');
+    exit();
 }
