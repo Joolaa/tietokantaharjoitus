@@ -63,7 +63,7 @@ class Tyoaika {
 
     public static function searchPagedSortByStartTime($amount,
         $page, $userId) {
-        $sql = "SELECT * FROM tyoaikadata WHERE kayttaja_id = ? LIMIT ? OFFSET ? ORDER BY alkuaika DESC";
+        $sql = "SELECT * FROM Tyoaikadata WHERE kayttaja_id = ? LIMIT ? OFFSET ? ORDER BY alkuaika DESC";
         $query = getTietokantayhteys()->prepare($sql);
         $query->execute(array($kayttaja_id, $amount,
             ($page-1) * $amount));
@@ -81,7 +81,7 @@ class Tyoaika {
     }
 
     public static function countTotalRowsOfUser($userId) {
-        $sql = "SELECT count(*) FROM tyoaikadata WHERE kayttaja_id = ?";
+        $sql = "SELECT count(*) FROM Tyoaikadata WHERE kayttaja_id = ?";
         $query = getTietokantayhteys()->prepare($sql);
         $query->execute(array($userId));
 
