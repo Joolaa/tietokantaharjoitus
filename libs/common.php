@@ -39,5 +39,5 @@ function logoutUser() {
 }
 
 function echoFormatDateFinnish($datetime) {
-    echo date_format($datetime, H:i d.m.Y);
+    echo date_format($datetime, 'H:i d.m.Y');
 }
