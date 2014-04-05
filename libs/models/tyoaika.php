@@ -57,7 +57,7 @@ class Tyoaika {
         return $this->kayttaja_id;
     }
 
-    public function setId($kayttaja_id) {
+    public function setKayttajaId($kayttaja_id) {
         $this->kayttaja_id = $kayttaja_id;
     }
 
