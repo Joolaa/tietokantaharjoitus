@@ -38,7 +38,7 @@ if(isset($_SESSION['logged'])) {
 $fields = manageLogin($_POST["username"], $_POST["password"]);
 
 if(!is_null($fields)) {
-    showView("loginform", $fields);
+    showView("loginform.php", $fields);
 }
 
 $username = $_POST["username"];

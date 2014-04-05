@@ -34,7 +34,7 @@ class Yhteiso {
 
         $tulokset = array();
         foreach($kysely->fetchAll(PDO::FETCH_OBJ) as $tulos) {
-            $yhteiso = new Yhteiso();
+            $yhteiso = new Yhteiso($tulos->id, $tulos->nimi);
             $yhteiso->setID($tulos->id);
             $yhteiso->setNimi($tulos->nimi);
             $tulokset[] = $yhteiso;
