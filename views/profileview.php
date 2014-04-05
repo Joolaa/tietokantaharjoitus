@@ -1,5 +1,8 @@
 <div class=rightelem>
-    <a href="#">
+    <a class="btn btn-primary" href="#">
         Tarkastele työtunteja
+    </a>
+    <a class="btn btn-primary" href="#">
+        Kirjaa työtunteja
     </a>
 </div>
