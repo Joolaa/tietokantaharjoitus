@@ -44,17 +44,18 @@ if(!is_null($fields)) {
 $username = $_POST["username"];
 $password = $_POST["password"];
 
-if(!Kayttaja::checkLogin($username, $password)) {
+$userid = Kayttaja::checkLogin($username, $password);
+
+if(is_null($userid)) {
     showView("loginform.php", array(
         'username' => $username,
         'title' => "Kirjautuminen",
         'error' => "Käyttäjätunnus tai salasana virheellinen."
     ));
 } else {
-    $_SESSION['logged'] = $user->getId();
+    $_SESSION['logged'] = $userid;
 
     showView("profile.php", array(
         'title' => "Sinun profiilisi",
-        'user' => $user
     ));
 }

@@ -63,13 +63,17 @@ class Kayttaja {
     }
 
     public static function checkLogin($kayttaja, $salasana) {
-        $sql = "SELECT email, salasana FROM Kayttaja WHERE email = ? LIMIT 1";
+        $sql = "SELECT id, email, salasana FROM Kayttaja WHERE email = ? LIMIT 1";
         $query = getTietokantayhteys()->prepare($sql);
         $query->execute(array($kayttaja));
         
         $result = $query->fetchObject();
 
-        return strcmp($salasana, $result->salasana);
+        if(strcmp($salasana, $result->salasana)) {
+            return $result->id;
+        }
+
+        return null;
     }
 
     public static function getUserByUsername($kayttaja, $salasana) {
