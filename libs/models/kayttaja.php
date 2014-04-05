@@ -1,5 +1,5 @@
 <?php
-require_once "libs/tietokantayhteys.php";
+require_once "../libs/tietokantayhteys.php";
 
 class Kayttaja {
 
