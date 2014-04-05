@@ -26,7 +26,7 @@ function manageLogin($username, $password) {
 }
 
 
-if(isLogged())) {
+if(isLogged()) {
     $user = Kayttaja::getUserById($_SESSION['logged']);
 
     showView("profile.php", array(
