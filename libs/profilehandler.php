@@ -1,14 +1,10 @@
 <?php
 require_once 'models/kayttaja.php';
 
-if(isLogged()) {
 
-    $user = Kayttaja::getUserById($_SESSION['logged']);
+$user = isLoggedDirectToLogin();
 
     showView('profileview.php', array(
         'title' => "Sinun profiilisi",
         'user' => $user
     ));
-}
-
-header('Location: ../login.php');

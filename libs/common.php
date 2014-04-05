@@ -17,20 +17,15 @@ function isLogged() {
     return !empty($_SESSION['logged']);
 }
 
-function isLoggedDirectToLogin(&$pagedata) {
+function isLoggedDirectToLogin() {
 
     if(isset($_SESSION['logged'])) {
-        if(is_null($pagedata)) {
-            return true;
-        }
-        if(!property_exists($pagedata, 'user')) {
-            $pagedata->user = Kayttaja::getUserById($_SESSION['logged']);
-        }
-        return true;
+        return Kayttaja::getUserByUserId($_SESSION['logged']);
     }
 
     header('Location: ../login.php');
-    return false;
+    exit();
+    return null;
 }
 
 function logoutUser() {

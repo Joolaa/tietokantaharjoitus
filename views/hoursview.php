@@ -1,3 +1,4 @@
+<?php require 'noticetempl.php' ?>
 <div class="row tableelem">
 <div class="panel panel-default">
     <div class="panel-heading">Kirjatut työtunnit:</div>
