@@ -1,7 +1,5 @@
 <?php
 session_start();
-require_once 'models/kayttaja.php';
-require_once 'tietokantayhteys.php';
 
 function showView($page, $data = array()) {
     $data = (object) $data;
