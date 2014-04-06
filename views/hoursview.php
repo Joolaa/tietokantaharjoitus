@@ -9,19 +9,19 @@ function makePagesButtonActive($currentamount, $buttonamount) {
 <div class="row tableelem">
 Näytä kerralla:
 <div class="btn-group">
-    <a href="hours.php?page=<?php echo $page; ?>&entriesDisplayed=10" 
+    <a href="hours.php?pagenum=<?php echo $data->pagenum; ?>&entriesDisplayed=10" 
         class="<?php makePagesButtonActive($data->entriesOnPage, 10); ?>">
         10
     </a>
-    <a href="hours.php?page=<?php echo $page; ?>&entriesDisplayed=20" 
+    <a href="hours.php?pagenum=<?php echo $data->pagenum; ?>&entriesDisplayed=20" 
         class="<?php makePagesButtonActive($data->entriesOnPage, 20); ?>">
         20
     </a>
-    <a href="hours.php?page=<?php echo $page; ?>&entriesDisplayed=50" 
+    <a href="hours.php?pagenum=<?php echo $data->pagenum; ?>&entriesDisplayed=50" 
         class="<?php makePagesButtonActive($data->entriesOnPage, 50); ?>">
         50
     </a>
-    <a href="hours.php?page=<?php echo $page; ?>&entriesDisplayed=100" 
+    <a href="hours.php?pagenum=<?php echo $data->pagenum; ?>&entriesDisplayed=100" 
         class="<?php makePagesButtonActive($data->entriesOnPage, 100); ?>">
         100
     </a>

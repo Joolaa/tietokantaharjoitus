@@ -12,7 +12,7 @@ if($totalEntries == 0) {
         'title' => 'Työtuntisi',
         'entriesOnPage' => $pagedata,
         'amountOfPages' => $totalEntries,
-        'page' => $pagenum
+        'pagenum' => $pagenum
     ));
 }
 
@@ -20,5 +20,5 @@ showView('hoursview.php', array(
     'title' => 'Työtuntisi',
     'entriesOnPage' => $pagedata,
     'amountOfPages' => ceil($totalEntries/$entriesDisplayed),
-    'page' => $pagenum
+    'pagenum' => $pagenum
 ));
