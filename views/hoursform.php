@@ -56,9 +56,10 @@
         <div class="input-group input-group-sm">
             <input type="text" class="form-control" 
             placeholder="Aihe" name="topic">
+        </div>
     </div>
     <div class="row">
-        <button type="submit" class="btn btn-primary" role="submit">
+        <button type="submit" class="btn btn-primary">
             Hyväksy
         </button>
     </div>
