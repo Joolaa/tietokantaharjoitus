@@ -35,3 +35,7 @@ function logoutUser() {
 function echoFormatDateFinnish($datetime) {
     echo date_format($datetime, 'H:i d.m.Y');
 }
+
+function echoFormatHoursMins($dateinterval) {
+    echo $dateinterval->format('%h h, %i min');
+}
