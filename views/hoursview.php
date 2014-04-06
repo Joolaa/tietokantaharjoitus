@@ -1,5 +1,31 @@
-<?php require 'noticetempl.php' ?>
+<?php require 'noticetempl.php' 
+function makePagesButtonActive($currentamount, $buttonamount) {
+    if($currentamount === $buttonamount) {
+        echo 'btn btn-primary';
+    } else {
+        echo 'btn btn-default';
+    }
+}?>
 <div class="row tableelem">
+Näytä kerralla:
+<div class="btn-group">
+    <a href="hours.php?page=<?php echo $page; ?>&entriesDisplayed=10" 
+        class="<?php makePagesButtonActive($data->entriesOnPage, 10 ?>">
+        10
+    </a>
+    <a href="hours.php?page=<?php echo $page; ?>&entriesDisplayed=20" 
+        class="<?php makePagesButtonActive($data->entriesOnPage, 20 ?>">
+        20
+    </a>
+    <a href="hours.php?page=<?php echo $page; ?>&entriesDisplayed=50" 
+        class="<?php makePagesButtonActive($data->entriesOnPage, 50 ?>">
+        50
+    </a>
+    <a href="hours.php?page=<?php echo $page; ?>&entriesDisplayed=100" 
+        class="<?php makePagesButtonActive($data->entriesOnPage, 100 ?>">
+        100
+    </a>
+</div>
 <div class="panel panel-default">
     <div class="panel-heading">Kirjatut työtunnit:</div>
     <table class="table">
