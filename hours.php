@@ -20,6 +20,12 @@ if(isset($_GET['edit'])) {
     $editID = null;
 }
 
+if(isset($_GET['add'])) {
+    $adding = true;
+} else {
+    $adding = false;
+}
+
 if(isset($_GET['delete'])) {
     $deleteId = (int) $_GET['delete'];
 } else {

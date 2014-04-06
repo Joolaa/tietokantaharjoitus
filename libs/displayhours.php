@@ -19,7 +19,8 @@ if($totalEntries == 0) {
         'amountOfPages' => $totalEntries,
         'pagenum' => $pagenum,
         'entriesPerPage' => $entriesDisplayed,
-        'editId' => $editId
+        'editId' => $editId,
+        'adding' => $adding
     ));
 }
 
@@ -29,5 +30,6 @@ showView('hoursview.php', array(
     'amountOfPages' => ceil($totalEntries/$entriesDisplayed),
     'pagenum' => $pagenum,
     'entriesPerPage' => $entriesDisplayed,
-    'editId' => $editId
+    'editId' => $editId,
+    'adding' => $adding
 ));
