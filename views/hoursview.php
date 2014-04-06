@@ -34,6 +34,7 @@ Näytä kerralla:
             <th>Mihin?</th>
             <th>Tunteja</th>
             <th>Aihe</th>
+            <th>Muokkaa</th>
         </tr>
         <?php foreach($data->entriesOnPage as $entry): ?>
         <tr>
@@ -48,6 +49,9 @@ Näytä kerralla:
             </td>
             <td>
             <?php echo $entry->getAihe(); ?>
+            </td>
+                <a href="hours.php?pagenum=<?php echo $data->pagenum; ?>&entriesDisplayed=<?php echo $data->entriesDisplayed; ?>&edit=<?php echo $entry->getId(); ?>">Muokkaa</a>
+            <td>
             </td>
         </tr>
         <?php endforeach; ?>
