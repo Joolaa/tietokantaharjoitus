@@ -27,7 +27,6 @@ if($totalEntries == 0) {
 }
 
 showView('hoursview.php', array(
-    'notice' => 'Et ole kirjannut työtunteja',
     'title' => 'Työtuntisi',
     'entriesOnPage' => $pagedata,
     'totalEntries' => $totalEntries
