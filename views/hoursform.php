@@ -3,7 +3,7 @@ $formdestination = $destination.'?pagenum='.$data->pagenum.'&entriesDisplayed='.
 
 if($data->adding) {
     $formdestination .= '&add';
-} else if(isset($data->$editId)) {
+} else if(isset($data->editId)) {
     $formdestination .= '&edit='.$data->editId;
 }
 ?>
