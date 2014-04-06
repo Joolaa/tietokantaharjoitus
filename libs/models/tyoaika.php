@@ -108,6 +108,6 @@ class Tyoaika {
         $sqlcmd = getTietokantayhteys()->prepare($sql);
         $sqlcmd->execute(array($tyoaika->getAlkuaika(),
             $tyoaika->getLoppuaika(), $tyoaika->getAihe(),
-            $userId);
+            $userId));
     }
 }
