@@ -50,8 +50,8 @@ Näytä kerralla:
             <td>
             <?php echo $entry->getAihe(); ?>
             </td>
-                <a href="hours.php?pagenum=<?php echo $data->pagenum; ?>&entriesDisplayed=<?php echo $data->entriesPerPage; ?>&edit=<?php echo $entry->getId(); ?>">Muokkaa</a>
             <td>
+                <a href="hours.php?pagenum=<?php echo $data->pagenum; ?>&entriesDisplayed=<?php echo $data->entriesPerPage; ?>&edit=<?php echo $entry->getId(); ?>">Muokkaa</a>
             </td>
         </tr>
         <?php endforeach; ?>
