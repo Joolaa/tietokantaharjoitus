@@ -96,7 +96,7 @@ class Tyoaika {
 
     public static function updateRow($rowId,
         $userId, $tyoaika) {
-        $sql = "UPDATE Tyoaikadata SET alkuaika = TIMESTAMP ?, loppuaika = TIMESTAMP ?, aihe = ? WHERE id = ? AND kayttaja_id = ?";
+        $sql = "UPDATE Tyoaikadata SET alkuaika = ?, loppuaika = ?, aihe = ? WHERE id = ? AND kayttaja_id = ?";
         $sqlcmd = getTietokantayhteys()->prepare($sql);
         $sqlcmd->execute(array(formatDateStandard($tyoaika->getAlkuaika()),
             formatDateStandard($tyoaika->getLoppuaika()), $tyoaika->getAihe(),
@@ -104,7 +104,7 @@ class Tyoaika {
     }
 
     public static function addRow($userId, $tyoaika) {
-        $sql = "INSERT INTO Tyoaikadata(id, alkuaika, loppuaika, aihe, kayttaja_id) VALUES(DEFAULT,TIMESTAMP ?, TIMESTAMP ?, ?, ?)";
+        $sql = "INSERT INTO Tyoaikadata(id, alkuaika, loppuaika, aihe, kayttaja_id) VALUES(DEFAULT, ?, ?, ?, ?)";
         $sqlcmd = getTietokantayhteys()->prepare($sql);
         $sqlcmd->execute(array(formatDateStandard($tyoaika->getAlkuaika()),
             formatDateStandard($tyoaika->getLoppuaika()), $tyoaika->getAihe(),
