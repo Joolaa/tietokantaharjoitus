@@ -1,4 +1,4 @@
-<?php if($data->amountOfPages > 0): ?>
+<?php if($data->amountOfPages > 1): ?>
 <ul class="pagination">
     <?php if($data->page > 1): ?>
     <li><a href="<?php echo $destination; ?>?page=<?php echo $data->page-1; ?>">&laquo</a></li>
