@@ -9,6 +9,7 @@ $totalEntries = Tyoaika::countTotalRowsOfUser($user->getId());
 if(!is_null($deleteId)) {
     Tyoaika::deleteRow($deleteId, $user->getID());
     header('Location: hours.php?pagenum='.$pagenum.'&entriesDisplayed='.$entriesDisplayed);
+}
 
 if($totalEntries == 0) {
     showView('hoursview.php', array(
