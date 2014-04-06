@@ -27,7 +27,7 @@ Näytä kerralla:
         class="<?php makePagesButtonActive($data->entriesPerPage, 100); ?>">
         100
     </a>
-</div>
+</div><br>
 <div class="panel panel-default">
     <div class="panel-heading">Kirjatut työtunnit:</div>
     <table class="table">
