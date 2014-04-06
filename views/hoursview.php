@@ -65,7 +65,9 @@ Näytä kerralla:
 <a class="btn btn-primary" href="<?php echo $destination.'?pagenum='.$data->pagenum.'&entriesDisplayed='.$data->entriesPerPage; ?>">Peruuta</a>
 <?php elseif($data->adding):
 require "hoursform.php"; ?>
+<div class=row>
 <a class="btn btn-primary" href="<?php echo $destination.'?pagenum='.$data->pagenum.'&entriesDisplayed='.$data->entriesPerPage; ?>">Peruuta</a>
+</div>
 <?php else: ?>
 <a class="btn btn-primary" href="<?php echo $destination.'?pagenum='.$data->pagenum.'&entriesDisplayed='.$data->entriesPerPage.'&add'; ?>">Lisää uusi</a>
 <?php endif; ?>

@@ -58,7 +58,7 @@
             placeholder="Aihe" name="topic">
         </div>
     </div>
-    <div class="row-fluid">
+    <div class="row">
         <button type="submit" class="btn btn-primary">
             Hyväksy
         </button>
