@@ -15,7 +15,7 @@ if(!is_null($tyoaika)) {
     $tyoaika->setKayttajaId($user->getId());
 
     if(!is_null($editId)) {
-        Tyoaika::updateRow($editId, $user->getId,
+        Tyoaika::updateRow($editId, $user->getId(),
             $tyoaika);
     } elseif($adding) {
         Tyoaika::addRow($user->getId(), $tyoaika);
