@@ -15,8 +15,8 @@ class Tyoaika {
         $aihe, $kayttaja_id) {
 
             $this->id = $id;
-            $this->alkuaika = $alkuaika;
-            $this->loppuaika = $loppuaika;
+            $this->alkuaika = new DateTime($alkuaika);
+            $this->loppuaika = new DateTIme($loppuaika);
             $this->tunteja = date_diff($alkuaika, $loppuaika);
             $this->aihe = $aihe;
             $this->kayttaja_id = $kayttaja_id;
