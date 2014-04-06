@@ -63,7 +63,7 @@ class Tyoaika {
 
     public static function searchPagedSortByStartTime($userId,
         $amount, $page) {
-        $sql = "SELECT * FROM Tyoaikadata WHERE kayttaja_id = ? LIMIT ? OFFSET ?";
+        $sql = "SELECT * FROM Tyoaikadata WHERE kayttaja_id = ? LIMIT ? OFFSET ? ORDER BY alkuaika DESC";
         $query = getTietokantayhteys()->prepare($sql);
         $query->execute(array($userId, $amount,
             ($page-1) * $amount));
