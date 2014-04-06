@@ -3,7 +3,7 @@
 $user = isLoggedDirectToLogin();
 
 $pagedata = Tyoaika::searchPagedSortByStartTime($user->getId(), 
-    $entriesDisplayed, $page);
+    $entriesDisplayed, $pagenum);
 $totalEntries = Tyoaika::countTotalRowsOfUser($user->getId());
 
 if($totalEntries == 0) {
@@ -12,7 +12,7 @@ if($totalEntries == 0) {
         'title' => 'Työtuntisi',
         'entriesOnPage' => $pagedata,
         'amountOfPages' => $totalEntries,
-        'page' => $page
+        'page' => $pagenum
     ));
 }
 
@@ -20,5 +20,5 @@ showView('hoursview.php', array(
     'title' => 'Työtuntisi',
     'entriesOnPage' => $pagedata,
     'amountOfPages' => ceil($totalEntries/$entriesDisplayed),
-    'page' => $page
+    'page' => $pagenum
 ));
