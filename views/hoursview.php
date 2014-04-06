@@ -27,4 +27,6 @@
         <?php endforeach; ?>
     </table>
 </div>
+<?php $destination = 'hours.php';
+require 'pagenavigator.php'; ?>
 </div>
