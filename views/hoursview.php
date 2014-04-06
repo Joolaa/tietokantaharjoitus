@@ -10,19 +10,19 @@ function makePagesButtonActive($currentamount, $buttonamount) {
 Näytä kerralla:
 <div class="btn-group">
     <a href="hours.php?pagenum=<?php echo $data->pagenum; ?>&entriesDisplayed=10" 
-        class="<?php makePagesButtonActive($data->entriesOnPage, 10); ?>">
+        class="<?php makePagesButtonActive($data->entriesPerPage, 10); ?>">
         10
     </a>
     <a href="hours.php?pagenum=<?php echo $data->pagenum; ?>&entriesDisplayed=20" 
-        class="<?php makePagesButtonActive($data->entriesOnPage, 20); ?>">
+        class="<?php makePagesButtonActive($data->entriesPerPage, 20); ?>">
         20
     </a>
     <a href="hours.php?pagenum=<?php echo $data->pagenum; ?>&entriesDisplayed=50" 
-        class="<?php makePagesButtonActive($data->entriesOnPage, 50); ?>">
+        class="<?php makePagesButtonActive($data->entriesPerPage, 50); ?>">
         50
     </a>
     <a href="hours.php?pagenum=<?php echo $data->pagenum; ?>&entriesDisplayed=100" 
-        class="<?php makePagesButtonActive($data->entriesOnPage, 100); ?>">
+        class="<?php makePagesButtonActive($data->entriesPerPage, 100); ?>">
         100
     </a>
 </div>
@@ -50,7 +50,7 @@ Näytä kerralla:
             <td>
             <?php echo $entry->getAihe(); ?>
             </td>
-                <a href="hours.php?pagenum=<?php echo $data->pagenum; ?>&entriesDisplayed=<?php echo $data->entriesOnPage; ?>&edit=<?php echo $entry->getId(); ?>">Muokkaa</a>
+                <a href="hours.php?pagenum=<?php echo $data->pagenum; ?>&entriesDisplayed=<?php echo $data->entriesPerPage; ?>&edit=<?php echo $entry->getId(); ?>">Muokkaa</a>
             <td>
             </td>
         </tr>
