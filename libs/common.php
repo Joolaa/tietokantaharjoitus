@@ -49,3 +49,7 @@ function makeDate($days, $months,
 function makeDateString($days, $months, $years, $hours, $minutes) {
         return (string) "$years-$months-$days $hours:$minutes";
 }
+
+function formatDateStandard($datetime) {
+    return (string) date_format($datetime, 'Y-m-d H:i');
+}
