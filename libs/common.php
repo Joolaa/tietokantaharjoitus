@@ -53,3 +53,9 @@ function makeDateString($days, $months, $years, $hours, $minutes) {
 function formatDateStandard($datetime) {
     return (string) date_format($datetime, 'Y-m-d H:i');
 }
+
+function validateDate($date) {
+    $format = 'Y-m-d H:i';
+    $datetime = DateTime::createFromFormat($format, $date);
+    return $datetime && $datetime->format($format) == $date;
+}

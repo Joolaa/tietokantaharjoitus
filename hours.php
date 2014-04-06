@@ -57,7 +57,12 @@ if($alltrue) {
         $topic = '-';
     }
 
-$tyoaika = new Tyoaika(0, $startdate, $enddate, $topic, 0);
+
+    if(validateDate($startdate) && validateDate($enddate)) {
+        $tyoaika = new Tyoaika(0, $startdate, $enddate, $topic, 0);
+    } else {
+        $error = 'Päivämäärä tai kellonaika ei ollut kelvollinen';
+    }
 } elseif($sometrue) {
     $error = 'Et täyttänyt kaikkia pakollisia kenttiä';
 }
