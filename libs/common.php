@@ -46,7 +46,6 @@ function makeDate($days, $months,
             (string) "$days-$months-$years $hours:$minutes");
 }
 
-function makeDateString($days, $months,
-    $years, $hours, $minutes) {
-        return "$years-$months-$days $hours:$minutes";
+function makeDateString($days, $months, $years, $hours, $minutes) {
+        return (string) "$years-$months-$days $hours:$minutes";
 }
