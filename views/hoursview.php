@@ -18,7 +18,7 @@
             <?php echoFormatDateFinnish($entry->getLoppuaika()); ?>
             </td>
             <td>
-            <?php echoFormatHoursMin(s$entry->getTunteja()); ?>
+            <?php echoFormatHoursMins($entry->getTunteja()); ?>
             </td>
             <td>
             <?php echo $entry->getAihe(); ?>
