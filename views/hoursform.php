@@ -6,11 +6,11 @@
         <div class="form-group">
             <input type="text" size="2" class="form-control" 
              placeholder="pp" name="startday">
-        </div>/
+        </div> /
         <div class="form-group">
             <input type="text" size="2" class="form-control" 
              placeholder="kk" name="startmonth">
-        </div>/
+        </div> /
         <div class="form-group">
             <input type="text" size="4" class="form-control" 
              placeholder="yyyy" name="startyear">
@@ -20,7 +20,7 @@
         <div class="form-group">
                 <input type="text" size="2" class="form-control" 
                 placeholder="tt" name="starthour">
-        </div>:
+        </div> :
         <div class="form-group">
             <input type="text" size="2" class="form-control" 
              placeholder="mm" name="startminute">
@@ -31,11 +31,11 @@
         <div class="form-group">
             <input type="text" size="2" class="form-control" 
              placeholder="pp" name="endday">
-        </div>/
+        </div> /
         <div class="form-group">
             <input type="text" size="2" class="form-control" 
              placeholder="kk" name="endmonth">
-        </div>/
+        </div> /
         <div class="form-group">
             <input type="text" size="4" class="form-control" 
              placeholder="yyyy" name="endyear">
@@ -45,7 +45,7 @@
         <div class="form-group">
                 <input type="text" size="2" class="form-control" 
                 placeholder="tt" name="endhour">
-        </div>:
+        </div> :
         <div class="form-group">
             <input type="text" size="2" class="form-control" 
              placeholder="mm" name="endminute">
