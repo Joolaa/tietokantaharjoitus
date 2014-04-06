@@ -88,4 +88,9 @@ class Tyoaika {
         return $query->fetchColumn();
     }
 
+    public static function deleteRow($rowId, $userId) {
+        $sql = "DELETE FROM Tyoaikadata WHERE id = ? AND kayttaja_id = ?";
+        $sqlcmd = $getTietokantayhteys()->prepare($sql);
+        $sqlcmd->execute(array($rowId, $userId));
+    }
 }
