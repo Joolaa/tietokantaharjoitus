@@ -1,4 +1,5 @@
 <?php require 'noticetempl.php';
+require 'alerttempl.php';
 function makePagesButtonActive($currentamount, $buttonamount) {
     if($currentamount === $buttonamount) {
         echo 'btn btn-primary';

@@ -39,3 +39,8 @@ function echoFormatDateFinnish($datetime) {
 function echoFormatHoursMins($dateinterval) {
     echo $dateinterval->format('%h h, %i min');
 }
+
+function makeDate($days, $months,
+    $years, $hours, $minutes) {
+        return new DateTime($years.'-'.$months.'-'.$days.' '.$hours.':'.$minutes);
+}

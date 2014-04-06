@@ -7,24 +7,30 @@ $pagedata = Tyoaika::searchPagedSortByStartTime($user->getId(),
 $totalEntries = Tyoaika::countTotalRowsOfUser($user->getId());
 
 if(!is_null($deleteId)) {
-    Tyoaika::deleteRow($deleteId, $user->getID());
+    Tyoaika::deleteRow($deleteId, $user->getId());
     header('Location: hours.php?pagenum='.$pagenum.'&entriesDisplayed='.$entriesDisplayed);
 }
 
+if(isset($tyoaika)) {
+    $tyoaika->setKayttajaId($user->getId());
+
+    if(!is_null($editId)) {
+        Tyoaika::updateRow($editId, $user->getId,
+            $tyoaika);
+    } elseif($adding) {
+        Tyoaika::addRow($user->getId(), $tyoaika);
+    }
+    header('Location: hours.php?pagenum='.$pagenum.'&entriesDisplayed='.$entriesDisplayed);
+}
+
+$notice = null;
 if($totalEntries == 0) {
-    showView('hoursview.php', array(
-        'notice' => 'Et ole kirjannut työtunteja',
-        'title' => 'Työtuntisi',
-        'entriesOnPage' => $pagedata,
-        'amountOfPages' => $totalEntries,
-        'pagenum' => $pagenum,
-        'entriesPerPage' => $entriesDisplayed,
-        'editId' => $editId,
-        'adding' => $adding
-    ));
+    $notice = 'Et ole kirjannut työtunteja';
 }
 
 showView('hoursview.php', array(
+    'notice' => $notice,
+    'error' => $error,
     'title' => 'Työtuntisi',
     'entriesOnPage' => $pagedata,
     'amountOfPages' => ceil($totalEntries/$entriesDisplayed),

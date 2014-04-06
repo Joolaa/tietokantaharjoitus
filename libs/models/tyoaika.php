@@ -93,4 +93,21 @@ class Tyoaika {
         $sqlcmd = getTietokantayhteys()->prepare($sql);
         $sqlcmd->execute(array($rowId, $userId));
     }
+
+    public static function updateRow($rowId,
+        $userId, $tyoaika) {
+        $sql = "UPDATE Tyoaikadata SET alkuaika = ?, loppuaika = ?, aihe = ? WHERE id = ? AND kayttaja_id = ?";
+        $sqlcmd = getTietokantayhteys()->prepare($sql);
+        $sqlcmd->execute(array($tyoaika->getAlkuaika(),
+            $tyoaika->getLoppuaika(), $tyoaika->getAihe(),
+            $rowId, $userId));
+    }
+
+    public static function addRow($userId, $tyoaika) {
+        $sql = "INSERT INTO Tyoaikadata(id, alkuaika, loppuaika, aihe, kayttaja_id) VALUES(DEFAULT, ?, ?, ?, ?)";
+        $sqlcmd = getTietokantayhteys()->prepare($sql);
+        $sqlcmd->execute(array($tyoaika->getAlkuaika(),
+            $tyoaika->getLoppuaika(), $tyoaika->getAihe(),
+            $userId);
+    }
 }

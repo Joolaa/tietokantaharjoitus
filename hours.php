@@ -32,4 +32,30 @@ if(isset($_GET['delete'])) {
     $deleteID = null;
 }
 
+$sometrue = false;
+$alltrue = true;
+
+$postfields = array('startday', 'startmonth', 'startyear',
+    'starthour', 'startminute', 'endday', 'endmonth',
+    'endyear', 'endhour', 'endminute');
+
+foreach($postfields as $postfield) {
+    $sometrue = $sometrue || isset($_POST[$postfield]);
+    $alltrue = $alltrue && isset($_POST[$postfield]);
+}
+
+if($alltrue) {
+    $startdate = makeDate($_POST['startday'], $_POST['startmonth'], $_POST['startyear'], $_POST['starthour'], $_POST['startminute']);
+    $enddate = makeDate($_POST['endday'], $_POST['endmonth'], $_POST['endyear'], $_POST['endhour'], $_POST['endminute']);
+    if(isset($_POST['topic'])) {
+        $topic = $_POST['topic'];
+    } else {
+        $topic = '-';
+    }
+
+$tyoaika = new Tyoaika(0, $startdate, $enddate, $topic, 0);
+} elseif($sometrue) {
+    $error = 'Et täyttänyt kaikkia pakollisia kenttiä';
+}
+
 require "libs/displayhours.php";

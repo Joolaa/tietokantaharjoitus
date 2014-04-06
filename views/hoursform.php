@@ -1,6 +1,14 @@
-<form action="<?php echo $destination; ?>" method="POST" 
+<?php
+$formdestination = $destination.'?pagenum='.$data->pagenum.'&entriesDisplayed='.$data->entriesPerPage;
+
+if($data->adding) {
+    $formdestination .= '&add';
+} else if(isset($data->$editId)) {
+    $formdestination .= '&edit='.$data->editId;
+}
+?>
+<form action="<?php echo $formdestination; ?>" method="POST" 
     class="form-inline" role="form">
-    <?php require 'alerttempl.php'; ?>
     Alkuaika:<br>
     <div class="row-fluid">
         <div class="form-group">
