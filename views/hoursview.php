@@ -62,5 +62,6 @@ Näytä kerralla:
 <?php require 'pagenavigator.php'; ?><br>
 <?php if(!is_null($data->editId)): ?>
 <a class="btn btn-danger" href="<?php echo $destination.'?pagenum='.$data->pagenum.'&entriesDisplayed='.$data->entriesPerPage.'&delete='.$data->editId; ?>">Poista</a>
+<a class="btn btn-primary" href="<?php echo $destination.'?pagenum='.$data->pagenum.'&entriesDisplayed='.$data->entriesPerPage; ?>">Peruuta</a>
 <?php endif; ?>
 </div>
