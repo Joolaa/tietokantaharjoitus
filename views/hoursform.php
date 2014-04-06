@@ -1,4 +1,4 @@
-<form action="<?php echo $destination; ?>" method="POST">
+<form action="<?php echo $destination; ?>" method="POST" class="form-inline">
     <?php require 'alerttempl.php'; ?>
     Alkuaika:<br>
     <div class="row">
