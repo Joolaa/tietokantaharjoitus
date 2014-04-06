@@ -49,8 +49,8 @@ $error = null;
 $tyoaika = null;
 
 if($alltrue) {
-    $startdate = makeDate($_POST['startday'], $_POST['startmonth'], $_POST['startyear'], $_POST['starthour'], $_POST['startminute']);
-    $enddate = makeDate($_POST['endday'], $_POST['endmonth'], $_POST['endyear'], $_POST['endhour'], $_POST['endminute']);
+    $startdate = makeDateString($_POST['startday'], $_POST['startmonth'], $_POST['startyear'], $_POST['starthour'], $_POST['startminute']);
+    $enddate = makeDateString($_POST['endday'], $_POST['endmonth'], $_POST['endyear'], $_POST['endhour'], $_POST['endminute']);
     if(isset($_POST['topic'])) {
         $topic = $_POST['topic'];
     } else {

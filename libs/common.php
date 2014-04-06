@@ -45,3 +45,8 @@ function makeDate($days, $months,
         return DateTime::createFromFormat('d-m-Y H:i',
             (string) "$days-$months-$years $hours:$minutes");
 }
+
+function makeDateString($days, $months,
+    $years, $hours, $minutes) {
+        return "$years-$months-$days $hours:$minutes";
+}
