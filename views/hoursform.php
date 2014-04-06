@@ -2,7 +2,7 @@
     class="form-inline" role="form">
     <?php require 'alerttempl.php'; ?>
     Alkuaika:<br>
-    <div class="row">
+    <div class="row-fluid">
         <div class="form-group" style="max-width:3em">
             <input type="text" class="form-control" 
              placeholder="pp" name="startday">
@@ -16,7 +16,7 @@
              placeholder="yyyy" name="startyear">
         </div>
     </div>
-    <div class="row">
+    <div class="row-fluid">
         <div class="form-group" style="max-width:3em">
                 <input type="text" class="form-control" 
                 placeholder="tt" name="starthour">
@@ -27,7 +27,7 @@
         </div>
     </div>
     Loppuaika:<br>
-    <div class="row">
+    <div class="row-fluid">
         <div class="form-group" style="max-width:3em">
             <input type="text" class="form-control" 
              placeholder="pp" name="endday">
@@ -41,7 +41,7 @@
              placeholder="yyyy" name="endyear">
         </div>
     </div>
-    <div class="row">
+    <div class="row-fluid">
         <div class="form-group" style="max-width:3em">
                 <input type="text" class="form-control" 
                 placeholder="tt" name="endhour">
@@ -52,13 +52,13 @@
         </div>
     </div>
     Aihe:<br>
-    <div class="row">
+    <div class="row-fluid">
         <div class="form-group">
             <input type="text" class="form-control" 
             placeholder="Aihe" name="topic">
         </div>
     </div>
-    <div class="row">
+    <div class="row-fluid">
         <button type="submit" class="btn btn-primary">
             Hyväksy
         </button>
