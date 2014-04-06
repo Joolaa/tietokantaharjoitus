@@ -42,5 +42,6 @@ function echoFormatHoursMins($dateinterval) {
 
 function makeDate($days, $months,
     $years, $hours, $minutes) {
-        return new DateTime($years.'-'.$months.'-'.$days.' '.$hours.':'.$minutes);
+        return DateTime::createFromFormat('d-m-Y H:i',
+            (string) "$days-$months-$years $hours:$minutes");
 }

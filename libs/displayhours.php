@@ -11,7 +11,7 @@ if(!is_null($deleteId)) {
     header('Location: hours.php?pagenum='.$pagenum.'&entriesDisplayed='.$entriesDisplayed);
 }
 
-if(isset($tyoaika)) {
+if(!is_null($tyoaika)) {
     $tyoaika->setKayttajaId($user->getId());
 
     if(!is_null($editId)) {

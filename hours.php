@@ -17,7 +17,7 @@ if(isset($_GET['entriesDisplayed'])) {
 if(isset($_GET['edit'])) {
     $editId = (int) $_GET['edit'];
 } else {
-    $editID = null;
+    $editId = null;
 }
 
 if(isset($_GET['add'])) {
@@ -29,7 +29,7 @@ if(isset($_GET['add'])) {
 if(isset($_GET['delete'])) {
     $deleteId = (int) $_GET['delete'];
 } else {
-    $deleteID = null;
+    $deleteId = null;
 }
 
 $sometrue = false;
@@ -43,6 +43,10 @@ foreach($postfields as $postfield) {
     $sometrue = $sometrue || isset($_POST[$postfield]);
     $alltrue = $alltrue && isset($_POST[$postfield]);
 }
+
+$error = null;
+
+$tyoaika = null;
 
 if($alltrue) {
     $startdate = makeDate($_POST['startday'], $_POST['startmonth'], $_POST['startyear'], $_POST['starthour'], $_POST['startminute']);
