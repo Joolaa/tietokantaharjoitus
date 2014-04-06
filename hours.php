@@ -40,8 +40,8 @@ $postfields = array('startday', 'startmonth', 'startyear',
     'endyear', 'endhour', 'endminute');
 
 foreach($postfields as $postfield) {
-    $sometrue = $sometrue || isset($_POST[$postfield]);
-    $alltrue = $alltrue && isset($_POST[$postfield]);
+    $sometrue = $sometrue || !empty($_POST[$postfield]) || $_POST[$postfield] === '0';
+    $alltrue = $alltrue && (!empty($_POST[$postfield]) || $_POST[$postfield] === '0');
 }
 
 $error = null;
