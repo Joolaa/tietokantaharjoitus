@@ -1,5 +1,5 @@
 <form action="<?php echo $destination; ?>" method="POST" 
-    class="form-horizontal" role="form">
+    class="form-inline" role="form">
     <?php require 'alerttempl.php'; ?>
     Alkuaika:<br>
     <div class="row">
