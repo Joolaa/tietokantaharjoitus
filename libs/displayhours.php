@@ -6,6 +6,10 @@ $pagedata = Tyoaika::searchPagedSortByStartTime($user->getId(),
     $entriesDisplayed, $pagenum);
 $totalEntries = Tyoaika::countTotalRowsOfUser($user->getId());
 
+if(!is_null($deleteId)) {
+    Tyoaika::deleteRow($deleteId, $user->getID());
+    header('Location: hours.php?pagenum='.$pagenum.'&entriesDisplayed='.$entriesDisplayed);
+
 if($totalEntries == 0) {
     showView('hoursview.php', array(
         'notice' => 'Et ole kirjannut työtunteja',
@@ -13,7 +17,8 @@ if($totalEntries == 0) {
         'entriesOnPage' => $pagedata,
         'amountOfPages' => $totalEntries,
         'pagenum' => $pagenum,
-        'entriesPerPage' => $entriesDisplayed
+        'entriesPerPage' => $entriesDisplayed,
+        'editId' => $editId
     ));
 }
 
@@ -23,4 +28,5 @@ showView('hoursview.php', array(
     'amountOfPages' => ceil($totalEntries/$entriesDisplayed),
     'pagenum' => $pagenum,
     'entriesPerPage' => $entriesDisplayed,
+    'editId' => $editId
 ));

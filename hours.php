@@ -14,4 +14,16 @@ if(isset($_GET['entriesDisplayed'])) {
     $entriesDisplayed = (int) $_GET['entriesDisplayed'];
 }
 
+if(isset($_GET['edit'])) {
+    $editId = (int) $_GET['edit'];
+} else {
+    $editID = null;
+}
+
+if(isset($_GET['delete'])) {
+    $deleteId = (int) $_GET['delete'];
+} else {
+    $deleteID = null;
+}
+
 require "libs/displayhours.php";

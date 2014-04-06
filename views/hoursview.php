@@ -5,23 +5,25 @@ function makePagesButtonActive($currentamount, $buttonamount) {
     } else {
         echo 'btn btn-default';
     }
-}?>
+}
+$destination = 'hours.php';
+?>
 <div class="row tableelem">
 Näytä kerralla:
 <div class="btn-group">
-    <a href="hours.php?pagenum=<?php echo $data->pagenum; ?>&entriesDisplayed=10" 
+    <a href="<?php echo $destination.'?pagenum='.$data->pagenum.'&entriesDisplayed=10'; ?>" 
         class="<?php makePagesButtonActive($data->entriesPerPage, 10); ?>">
         10
     </a>
-    <a href="hours.php?pagenum=<?php echo $data->pagenum; ?>&entriesDisplayed=20" 
+    <a href="<?php echo $destination.'?pagenum='.$data->pagenum.'&entriesDisplayed=20'; ?>" 
         class="<?php makePagesButtonActive($data->entriesPerPage, 20); ?>">
         20
     </a>
-    <a href="hours.php?pagenum=<?php echo $data->pagenum; ?>&entriesDisplayed=50" 
+    <a href="<?php echo $destination.'?pagenum='.$data->pagenum.'&entriesDisplayed=50'; ?>" 
         class="<?php makePagesButtonActive($data->entriesPerPage, 50); ?>">
         50
     </a>
-    <a href="hours.php?pagenum=<?php echo $data->pagenum; ?>&entriesDisplayed=100" 
+    <a href="<?php echo $destination.'?pagenum='.$data->pagenum.'&entriesDisplayed=100'; ?>" 
         class="<?php makePagesButtonActive($data->entriesPerPage, 100); ?>">
         100
     </a>
@@ -51,12 +53,14 @@ Näytä kerralla:
             <?php echo $entry->getAihe(); ?>
             </td>
             <td>
-                <a href="hours.php?pagenum=<?php echo $data->pagenum; ?>&entriesDisplayed=<?php echo $data->entriesPerPage; ?>&edit=<?php echo $entry->getId(); ?>">Muokkaa</a>
+            <a href="<?php echo $destination.'?pagenum='.$data->pagenum.'&entriesDisplayed='.$data->entriesPerPage.'&edit='.$entry->getId(); ?>">Muokkaa</a>
             </td>
         </tr>
         <?php endforeach; ?>
     </table>
 </div>
-<?php $destination = 'hours.php';
-require 'pagenavigator.php'; ?>
+<?php require 'pagenavigator.php'; ?><br>
+<?php if(!is_null($data->editId)): ?>
+<a class="btn btn-danger" href="<?php echo $destination.'?pagenum='.$data->pagenum.'&entriesDisplayed='.$data->entriesPerPage.'&delete='.$data->editId; ?>">Poista</a>
+<?php endif; ?>
 </div>
