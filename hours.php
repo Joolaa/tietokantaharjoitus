@@ -52,7 +52,7 @@ if($alltrue) {
     $startdate = makeDateString($_POST['startday'], $_POST['startmonth'], $_POST['startyear'], $_POST['starthour'], $_POST['startminute']);
     $enddate = makeDateString($_POST['endday'], $_POST['endmonth'], $_POST['endyear'], $_POST['endhour'], $_POST['endminute']);
     if(isset($_POST['topic'])) {
-        $topic = encode($_POST['topic']);
+        $topic = htmlentities($_POST['topic']);
     } else {
         $topic = '-';
     }
