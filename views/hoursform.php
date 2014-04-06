@@ -4,7 +4,7 @@
     Alkuaika:<br>
     <div class="row-fluid">
         <div class="form-group" style="max-width:3em">
-            <input type="text" class="form-control" 
+            <input type="text" size="3" class="form-control" 
              placeholder="pp" name="startday">
         </div>/
         <div class="form-group" style="max-width:3em">
