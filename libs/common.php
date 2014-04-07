@@ -8,7 +8,7 @@ function showView($page, $data = array()) {
 }
 
 function issetEcho($var, $message) {
-    if(isset($var)) {
+    if(!empty($var)) {
         echo $message;
     }
 }
