@@ -69,7 +69,7 @@ class Kayttaja {
         
         $result = $query->fetchObject();
 
-        if(strcmp($salasana, $result->salasana) === 0) {
+        if(!empty($result) && strcmp($salasana, $result->salasana) === 0) {
             return $result->id;
         }
 
