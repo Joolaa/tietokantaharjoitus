@@ -1,10 +1,3 @@
-<?php
-    function echoUsername($obj) {
-        if(isset($obj->user)) {
-            echo 'value="' . $obj->username . '"';
-        }
-    }
-?>
 <h1>Kirjaudu sisään.</h1>
 <form action="login.php" method="POST">
     <?php require 'alerttempl.php'; ?>
@@ -13,7 +6,7 @@
             <span class="input-group-addon">Sähköposti:</span>
             <input type="text" class="form-control" 
              placeholder="Kirjoita tähän" name="username"
-             <?php echoUsername($data); ?>>
+             <?php issetEcho($data->username, $data->username); ?>>
         </div>
     </div>
     <div class="row">
