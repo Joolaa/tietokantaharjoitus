@@ -64,7 +64,7 @@ function arrayKeysSet($array, $keys) {
 
     $result = array();
 
-    foreach($keys as $keys) {
+    foreach($keys as $key) {
         if(array_key_exists($key, $array) &&
             (!empty($array[$key]) || $array[$key] === '0')) {
                 $result[] = $key;
