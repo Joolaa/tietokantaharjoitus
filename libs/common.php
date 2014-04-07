@@ -59,3 +59,17 @@ function validateDate($date) {
     $datetime = DateTime::createFromFormat($format, $date);
     return $datetime && $datetime->format($format) == $date;
 }
+
+function arrayKeysSet($array, $keys) {
+
+    $result = array();
+
+    foreach($keys as $keys) {
+        if(array_key_exists($key, $array) &&
+            (!empty($array[$key] || $array[$key] === '0'))) {
+                $result[] = $key;
+            }
+    }
+
+    return $result;
+}

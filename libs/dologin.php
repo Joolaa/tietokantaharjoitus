@@ -2,22 +2,23 @@
 require_once 'libs/models/kayttaja.php';
 require_once 'libs/common.php';
 
-function manageLogin($username, $password) {
-    if(empty($username) && empty($password)) {
+function manageLogin($postarray) {
+    $setfields = arrayKeysSet($postarray,
+        array('username', 'password'));
+
+    if(empty($setfields)) {
         return array(
             'title' => "Kirjautuminen"
         );
-    }
-    if(empty($username)) {
+    } elseif(!in_array('username', $setfields)) {
         return array(
             'title' => "Kirjautuminen",
             'error' => "Unohdit antaa käyttäjänimen"
         );
-    }
-    if(empty($password)) {
+    } elseif(!in_array('password', $setfields)) {
         return array(
             'title' => "Kirjautuminen",
-            'username' => $username,
+            'username' => $_POST['username'],
             'error' => "Unodit antaa salasanan"
         );
     }
@@ -32,7 +33,7 @@ if(isLogged()) {
     exit();
 }
 
-$fields = manageLogin($_POST["username"], $_POST["password"]);
+$fields = manageLogin($_POST);
 
 if(!is_null($fields)) {
     showView("loginform.php", $fields);
