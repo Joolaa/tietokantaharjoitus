@@ -6,7 +6,7 @@
             <span class="input-group-addon">Sähköposti:</span>
             <input type="text" class="form-control" 
              placeholder="Kirjoita tähän" name="username"
-             <?php issetEcho($data->username, $data->username); ?>>
+             value="<?php echo $data->username ?>">
         </div>
     </div>
     <div class="row">
