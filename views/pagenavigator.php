@@ -6,7 +6,7 @@
     <li class="disabled">&laquo</li>
     <?php endif; ?>
 
-    <?php for($i = 1; $i <=amountOfPages; $i++): ?>
+    <?php for($i = 1; $i <=$data->amountOfPages; $i++): ?>
     <?php if($i === $data->pagenum): ?>
     <li class="active"><a href="<?php echo $destination; ?>?pagenum=<?php echo $i; ?>&entriesOnPage=<?php echo $data->entriesPerPage; ?>"><?php echo $i; ?></a></li>
     <?php else: ?>
