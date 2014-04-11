@@ -3,7 +3,7 @@
     <?php if($data->pagenum > 1): ?>
     <li><a href="<?php echo $destination; ?>?pagenum=<?php echo $data->pagenum-1; ?>&entriesOnPage=<?php echo $data->entriesPerPage; ?>">&laquo</a></li>
     <?php else: ?>
-    <li class="disabled"><a href="#">&amp;laquo</a></li>
+    <li class="disabled"><a href="#">&laquo</a></li>
     <?php endif; ?>
 
     <?php for($i = 1; $i <=$data->amountOfPages; $i++): ?>
@@ -17,7 +17,7 @@
     <?php if($data->pagenum < $data->amountOfPages): ?>
     <li><a href="<?php echo $destination; ?>?pagenum=<?php echo $data->pagenum+1; ?>&entriesOnPage=<?php echo $data->entriesPerPage; ?>">&raquo</a></li>
     <?php else: ?>
-    <li class="disabled"><a href="#">&amp;raquo</a></li>
+    <li class="disabled"><a href="#">&raquo</a></li>
     <?php endif; ?>
 </ul>
 <?php endif; ?>
