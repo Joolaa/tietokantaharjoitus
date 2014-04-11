@@ -32,23 +32,27 @@ if(isset($_GET['delete'])) {
     $deleteId = null;
 }
 
-$sometrue = false;
-$alltrue = true;
+//$sometrue = false;
+//$alltrue = true;
 
 $postfields = array('startday', 'startmonth', 'startyear',
     'starthour', 'startminute', 'endday', 'endmonth',
     'endyear', 'endhour', 'endminute');
 
+$keysSet = arrayKeysSet($_POST, $postfields);
+
+/*
 foreach($postfields as $postfield) {
     $sometrue = $sometrue || !empty($_POST[$postfield]) || $_POST[$postfield] === '0';
     $alltrue = $alltrue && (!empty($_POST[$postfield]) || $_POST[$postfield] === '0');
 }
 
+ */
 $error = null;
 
 $tyoaika = null;
 
-if($alltrue) {
+if($postfields === $keysSet) {
     $startdate = makeDateString($_POST['startday'], $_POST['startmonth'], $_POST['startyear'], $_POST['starthour'], $_POST['startminute']);
     $enddate = makeDateString($_POST['endday'], $_POST['endmonth'], $_POST['endyear'], $_POST['endhour'], $_POST['endminute']);
     if(isset($_POST['topic'])) {
@@ -63,7 +67,7 @@ if($alltrue) {
     } else {
         $error = 'Päivämäärä tai kellonaika ei ollut kelvollinen';
     }
-} elseif($sometrue) {
+} elseif(!empty($keysSet)) {
     $error = 'Et täyttänyt kaikkia pakollisia kenttiä';
 }
 
