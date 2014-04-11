@@ -15,7 +15,7 @@
     <?php endfor; ?>
 
     <?php if($data->pagenum < $data->amountOfPages): ?>
-    <li><a href="<?php echo $destination; ?>?pagenum=<?php echo $data->page+1; ?>&entriesOnPage=<?php echo $data->entriesPerPage; ?>">&raquo</a></li>
+    <li><a href="<?php echo $destination; ?>?pagenum=<?php echo $data->pagenum+1; ?>&entriesOnPage=<?php echo $data->entriesPerPage; ?>">&raquo</a></li>
     <?php else: ?>
     <li class="disabled">&raquo</li>
     <?php endif; ?>
