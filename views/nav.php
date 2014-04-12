@@ -22,7 +22,7 @@ function makepillactive_pohja($currentpage, $thispage) {
         <li<?php makepillactive_pohja('loginform.php', $page);?>>
             <a href="../login.php">Kirjaudu</a>
         </li>
-        <li<?php makepillactive_pohja('signup.php', $page);?>>
+        <li<?php makepillactive_pohja('signupform.php', $page);?>>
             <a href="../signup.php">Rekisteröidy</a>
         </li>
     </ul>
