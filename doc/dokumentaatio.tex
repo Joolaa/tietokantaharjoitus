@@ -91,7 +91,7 @@ joku, jota ei löydy valikosta.
 \subsection{Käyttötapauskaavio} Ohessa käyttötapaukset kuvattuna
 graafisesti.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{graafi.png}
     \caption{\small Jos käyttötapaus on riippuvainen jostain toisesta
@@ -180,7 +180,7 @@ yhteisön kautta.
 
 \newpage
 \section{Relaatiotietokantakaavio}
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{relaatiokaavio.png}
     \caption{\small Alustava kaavio jossa on graafisesti hahmoteltuna
@@ -190,37 +190,58 @@ yhteisön kautta.
 \section{Käyttöliittymä}
 \subsection{Käyttöliittymäluonnokset}
 Ohessa muutama luonnos käyttöliittymästä.
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{sivukartta.png}
     \caption{\small Navigointia havainnollistava sivukartta}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{etusivu.png}
     \caption{\small Etusivu ja rekisteröityminen}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{kirjautuminen.png}
     \caption{\small Kirjautuminen ja profiilisivu}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{omattiedot.png}
     \caption{\small Käyttäjän tietojen hallinnointi ja työtuntien
     tarkastelu}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{yhthallinnointi.png}
     \caption{\small Yhteisön hallinnointi ja asiakkaiden tietojen
     hallinnointi}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.8\textwidth]{kirjaaminen.png}
     \caption{\small Työtuntien kirjaaminen ja yhteisön sivut}
+\end{figure}
+
+\section{Järjestelmän yleisrakenne} Järjestelmä noudattaa MVC-mallia,
+jossa ohjelmiston eri tehtävät on jaettu omiin kerroksittaisiin
+kokonaisuuksiin. Kansiost views löytyy näkymät, jotka määrittelevät
+käyttöliittymän graafisen ilmeen. Kontrollerit sijaitsevat juuressa ja
+niiden tehtävä on ottaa vastaan käyttäjän antamia käskyjä sekä antaa
+näkymille tieto siitä, millaista dataa käyttäjälle näytetään. Kansiossa
+libs on erilaisia kirjastoja ja kontrollerien toiminnallisuutta jatkavia
+tiedostoja. Näistä kirjastoista tärkein lienee commons.php, jossa on
+erilaisia yleiskäyttöisiä funktioita. Libs-kansiossa on alakansio models,
+jossa sijaitsevat mallit, joiden tehtävä on tarjota käyttöliittymä 
+projektissa käytettävään PostgreSQL-tietokantaan. Kaikki tiedostojen ja
+kansioiden nimet on kirjoitettu pienillä alkukirjaimilla.
+
+\section{Käyttöliittymä ja järjestelmän komponentit} Ohessa on esitettynä
+suppea kaavio joka kuvaa, miten sivustolla navigointi tapahtuu.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{kayttoliittymakaavio.png}
+    \caption{\small Sivustolla navigointi}
 \end{figure}
 
 \section{Asennustiedot} Sovelluksen voi asentaa siirtämällä

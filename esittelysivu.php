@@ -51,9 +51,10 @@
             ja työaikaseurantapalvelu. Lisää tietoa aiheesta 
             dokumentaatiossa.
         </p>
-<a href="html-demo/index.html"> Demoversio sivuista</a>
-<a href="listaustesti.php">Tietokantadatan listaustestisivu</a>
-<a href="connectiontest.php">Tietokantatalulujen yhteyssivu</a>
-<a href="login.php">Kirjautuminen</a>
+<a href="html-demo/index.html"> Demoversio sivuista</a><br>
+<a href="listaustesti.php">Tietokantadatan listaustestisivu</a><br>
+<a href="connectiontest.php">Tietokantatalulujen yhteyssivu</a><br>
+<a href="login.php">Kirjautuminen</a><br>
+<p>Kaksi tietokohdetta valmiina: työajat ja käyttäjä</p>
     </body>
 </html>
