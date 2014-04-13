@@ -132,18 +132,31 @@ class Kayttaja {
             return $user;
         }
     }
+    public static function validateEmail($email) {
+        return filter_var($email, FILTER_VALIDATE_EMAIL);
+    }
     private function convertNamesHtmlEntities() {
         $this->etunimi = htmlentities($this->etunimi, ENT_QUOTES);
         $this->sukunimi = htmlentities($this->sukunimi, ENT_QUOTES);
     }
 
-    public function addThisUser() {
-
-        if(!filter_var($this->kayttaja, FILTER_VALIDATE_EMAIL) || strlen($this->email) > 50) {
+    private function handleEmailCheck() {
+        if(!self::validateEmail($this->email) || strlen($this->email) > 50) {
             return 'Sähköpostiosoite ei kelvannut';
         }
         if(!self::checkEmailAvailability($this->kayttaja)) {
             return 'Sähköpostiosoite on jo varattu';
+        }
+
+        return null;
+    }
+
+    public function addThisUser() {
+
+        $emailcheck = $this->handleEmailCheck();
+
+        if(!is_null($emailcheck)) {
+            return $emailcheck;
         }
 
         $this->convertNamesHtmlEntities();
@@ -158,5 +171,34 @@ class Kayttaja {
             $this->etunimi, $this->sukunimi));
 
         return null;
+    }
+
+    public function updateThisUser() {
+
+        $emailcheck = $this->handleEmailCheck();
+
+        if(!is_null($emailcheck)) {
+            return $emailcheck;
+        }
+
+        if(strlen($this->etunimi) > 20 || strlen($this->sukunimi) > 30) {
+            return 'Etunimi tai sukunimi liian pitkä';
+        }
+
+        $sql = 'UPDATE kayttaja SET email = ?, salasana = ?, etunimi = ?, sukunimi = ? WHERE id = ?';
+        $sqlcmd = getTietokantayhteys()->prepare($sql);
+        $sqlcmd->execute(array($this->kayttaja, $this->salasana,
+            $this->etunimi, $this->sukunimi, $this->id));
+
+        return null;
+    }
+
+    public function updateThisUserConfirmPass($username, $password) {
+
+        if(is_null(self::checkLogin($username, $password))) {
+            return 'Salasana ei ollut kelvollinen';
+        }
+
+        return $this->updateThisUser();
     }
 }

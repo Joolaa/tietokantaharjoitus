@@ -1,10 +1,18 @@
 <h1>Asetusten muuttaminen</h1>
 <br><br>
 <?php require 'alerttempl.php'; ?>
+<?php require 'noticetempl.php'; ?>
 <br>
 <p>Sähköpostiosoitteen vaihtaminen</p>
+<p>Anna salasana varmistaaksesi osoitteen vaihtamisen</p>
 <form action="usersettings.php?email" method="POST"
     class="form-inline" role="form">
+    <div class="row-fluid">
+        <div class="form-group">
+            <input type="password" class="form-control"
+             placeholder="Salasana" name="password">
+        </div>
+    </div>
     <div class="row-fluid">
         <div class="form-group">
             <input type="text" class="form-control"

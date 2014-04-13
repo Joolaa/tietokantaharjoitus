@@ -35,6 +35,13 @@ function makepillactive_pohja($currentpage, $thispage) {
     <p class="nav navbar-text">Kirjautuneena: <?php $data->user->echoUserFullName(); ?></p>
     <ul class="nav nav-pills navbar-left">
         <li>
+            <a href="profile.php">
+                Profiili
+            </a>
+        </li>
+    </ul>
+    <ul class="nav nav-pills navbar-left">
+        <li>
             <a href="usersettings.php">
                 Asetukset
             </a>
