@@ -96,6 +96,21 @@ class Kayttaja {
             return $user;
         }
     }
+
+    public static function checkEmailAvailability($email) {
+        $sql = "SELECT * FROM Kayttaja Where email = ? LIMIT 1";
+        $query = getTietokantayhteys()->prepare($sql);
+        $query->execute(array($email));
+
+        $result = $query->fetchObject();
+
+        if($result == null) {
+            return true;
+        }
+
+        return false;
+    }
+
     public static function getUserById($id) {
         $sql = "SELECT id, email, salasana, etunimi, sukunimi FROM Kayttaja WHERE id = ? LIMIT 1";
         $query = getTietokantayhteys()->prepare($sql);
@@ -115,5 +130,32 @@ class Kayttaja {
 
             return $user;
         }
+    }
+    private function convertNamesHtmlEntities() {
+        $this->etunimi = htmlentities($this->etunimi, ENT_QUOTES);
+        $this->sukunimi = htmlentities($this->sukunimi, ENT_QUITES);
+    }
+
+    private function hashThisPassword() {
+        $this->salasana = password_hash($this->salasana, PASSWORD_DEFAULT);
+    }
+    public function addThisUser() {
+
+        if(!filter_var($this->kayttaja, FILTER_VALIDATE_EMAIL)) {
+            return 'Sähköpostiosoite ei kelvannut';
+        }
+        if(checkEmailAvailability($this->kayttaja)) {
+            return 'Sähköpostiosoite on jo varattu';
+        }
+
+        $this->convertNamesHtmlEntities();
+        $this->hashThisPassword();
+
+        $sql = 'INSERT INTO Kayttajat VALUES(DEFAULT, ?, ?, ?, ?)';
+        $sqlcmd = getTietokantayhteys()->prepare($sql);
+        $sqlcmd->execute(array($this->kayttaja, $this->salasana,
+            $this->etunimi, $this->sukunimi));
+
+        return null;
     }
 }

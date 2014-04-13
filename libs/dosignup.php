@@ -1,4 +1,5 @@
 <?php
 showView('signupform.php', array(
-    'title' => 'Rekisteröityminen'
+    'title' => 'Rekisteröityminen',
+    'error' => $error
 ));
