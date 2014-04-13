@@ -69,7 +69,8 @@ class Kayttaja {
         
         $result = $query->fetchObject();
 
-        if(!empty($result) && password_verify($salasana, $result->salasana)) {
+        //HUOM HUOM, vain väliaikaisesti tässä muodossa testitarkoituksessa
+        if(!empty($result) && (strcmp($salasana, $result->salasana) === 0 || password_verify($salasana, $result->salasana)) {
             return $result->id;
         }
 
