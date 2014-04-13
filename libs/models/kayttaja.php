@@ -70,7 +70,7 @@ class Kayttaja {
         $result = $query->fetchObject();
 
         //HUOM HUOM, vain väliaikaisesti tässä muodossa testitarkoituksessa
-        if(!empty($result) && (strcmp($salasana, $result->salasana) === 0 || password_verify($salasana, $result->salasana))) {
+        if(!empty($result) && (strcmp($salasana, $result->salasana) === 0)) {
             return $result->id;
         }
 
@@ -137,16 +137,6 @@ class Kayttaja {
         $this->sukunimi = htmlentities($this->sukunimi, ENT_QUOTES);
     }
 
-    private function hashThisPassword() {
-        $hash = password_hash($this->salasana, PASSWORD_BCRYPT);
-
-        if($hash == false) {
-            return 'DEBUG: Virhe tapahtui salasanaa asetettaessa';
-        }
-
-        $this->salasana = $hash;
-        return null;
-    }
     public function addThisUser() {
 
         if(!filter_var($this->kayttaja, FILTER_VALIDATE_EMAIL)) {
@@ -157,11 +147,6 @@ class Kayttaja {
         }
 
         $this->convertNamesHtmlEntities();
-        $hashingresult = $this->hashThisPassword();
-
-        if(!is_null($hashingresult)) {
-            return $hashingresult;
-        }
 
         $sql = 'INSERT INTO Kayttaja VALUES(DEFAULT, ?, ?, ?, ?)';
         $sqlcmd = getTietokantayhteys()->prepare($sql);
