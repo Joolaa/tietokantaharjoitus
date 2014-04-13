@@ -10,7 +10,7 @@ $notice = null;
 
 if(isset($_GET['email'])) {
     $postfields = array('password', 'email');
-    $setfields = arrayFieldsSet($_POST, $postfields);
+    $setfields = arrayKeysSet($_POST, $postfields);
 
     if($postfields === $setfields) {
         $userobj->setKayttaja($_POST['email']);
@@ -46,7 +46,7 @@ if(isset($_GET['email'])) {
 } elseif(isset($_GET['password'])) {
 
     $postfields = array('oldpass', 'newpass', 'newpassconfirm');
-    $setfields = arrayFieldsSet($_POST, $postfields);
+    $setfields = arrayKeysSet($_POST, $postfields);
 
     if($postfields === $setfields) {
         if(strcmp($_POST['newpass'],
