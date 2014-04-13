@@ -141,11 +141,14 @@ class Kayttaja {
     }
 
     private function handleEmailCheck() {
-        if(!self::validateEmail($this->kayttaja) || strlen($this->kayttaja) > 50) {
-            return 'Sähköpostiosoite ei kelvannut';
-        }
-        if(!self::checkEmailAvailability($this->kayttaja)) {
-            return 'Sähköpostiosoite on jo varattu';
+        $emailOfId = self::getUserById($this->id)->kayttaja;
+        if(strcmp($emailOfId, $this->kayttaja) !== 0) {
+            if(!self::validateEmail($this->kayttaja) || strlen($this->kayttaja) > 50) {
+                return 'Sähköpostiosoite ei kelvannut';
+            }
+            if(!self::checkEmailAvailability($this->kayttaja)) {
+                return 'Sähköpostiosoite on jo varattu';
+            }
         }
 
         return null;
