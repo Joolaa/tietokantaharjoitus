@@ -11,14 +11,14 @@
     <div class="row" style="max-width:50%">
         <div class="input-group">
             <span class="input-group-addon">Salasana:</span>
-            <input type="text" class="form-control"
+            <input type="password" class="form-control"
              name="password">
         </div>
     </div>
     <div class="row" style="max-width:50%">
         <div class="input-group">
             <span class="input-group-addon">Salasana uudestaan:</span>
-            <input type="text" class="form-control"
+            <input type="password" class="form-control"
              name="passwordconfirm">
         </div>
     </div>
