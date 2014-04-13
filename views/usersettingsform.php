@@ -46,7 +46,7 @@
 <br><br>
 <p>Salasanan vaihtaminen</p>
 <form action="usersettings.php?password" method="POST"
-    role="form-inline">
+    role="form" class="form-inline">
     <div class="row-fluid">
         <div class="form-group">
             <input type="password" class="form-control"
@@ -76,7 +76,7 @@
 <p>Tilin poistaminen</p>
 <p>Syötä salasanasi varmistaaksesi tilin poistaminen</p>
 <form action="usersettings.php?delete" method="POST"
-    role="form-inline">
+    role="form" class="form-inline">
     <div class="row-fluid">
         <div class="form-group">
             <input type="password" class="form-control"
