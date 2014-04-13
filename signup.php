@@ -11,7 +11,7 @@ if(isLogged()) {
 $postfields = array('email', 'password',
     'passwordconfirm', 'firstname',
     'lastname'
-));
+);
 
 $setfields = arrayKeysSet($_POST, $postfields);
 
