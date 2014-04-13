@@ -144,7 +144,7 @@ class Kayttaja {
         if(!filter_var($this->kayttaja, FILTER_VALIDATE_EMAIL)) {
             return 'Sähköpostiosoite ei kelvannut';
         }
-        if(self::checkEmailAvailability($this->kayttaja)) {
+        if(!self::checkEmailAvailability($this->kayttaja)) {
             return 'Sähköpostiosoite on jo varattu';
         }
 
