@@ -151,7 +151,7 @@ class Kayttaja {
         $this->convertNamesHtmlEntities();
         $this->hashThisPassword();
 
-        $sql = 'INSERT INTO Kayttajat VALUES(DEFAULT, ?, ?, ?, ?)';
+        $sql = 'INSERT INTO Kayttaja VALUES(DEFAULT, ?, ?, ?, ?)';
         $sqlcmd = getTietokantayhteys()->prepare($sql);
         $sqlcmd->execute(array($this->kayttaja, $this->salasana,
             $this->etunimi, $this->sukunimi));
