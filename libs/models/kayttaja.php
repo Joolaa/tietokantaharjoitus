@@ -139,7 +139,7 @@ class Kayttaja {
 
     public function addThisUser() {
 
-        if(!filter_var($this->kayttaja, FILTER_VALIDATE_EMAIL)) {
+        if(!filter_var($this->kayttaja, FILTER_VALIDATE_EMAIL) || strlen($this->email) > 50) {
             return 'Sähköpostiosoite ei kelvannut';
         }
         if(!self::checkEmailAvailability($this->kayttaja)) {
@@ -147,6 +147,10 @@ class Kayttaja {
         }
 
         $this->convertNamesHtmlEntities();
+
+        if(strlen($this->etunimi) > 20 || strlen($this->sukunimi) > 30) {
+            return 'Etunimi tai sukunimi liian pitkä';
+        }
 
         $sql = 'INSERT INTO Kayttaja VALUES(DEFAULT, ?, ?, ?, ?)';
         $sqlcmd = getTietokantayhteys()->prepare($sql);
