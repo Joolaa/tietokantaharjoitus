@@ -3,7 +3,7 @@
 CREATE TABLE kayttaja (
     id SERIAL PRIMARY KEY,
     email VARCHAR(50),
-    salasana VARCHAR(100),
+    salasana VARCHAR(256),
     etunimi VARCHAR(20),
     sukunimi VARCHAR(30)
 );

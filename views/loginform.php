@@ -22,6 +22,3 @@
         </button>
     </div>
 </form>
-
-<?php
-phpinfo();
