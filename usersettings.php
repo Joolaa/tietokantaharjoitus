@@ -2,8 +2,7 @@
 require_once 'libs/common.php';
 require_once 'libs/models/kayttaja.php';
 
-$userid = isLoggedDirectToLogin();
-$userobj = Kayttaja::getUserById($userid);
+$userobj = isLoggedDirectToLogin();
 $useremail = $userobj->getKayttaja();
 
 $error = null;
