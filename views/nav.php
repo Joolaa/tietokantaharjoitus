@@ -32,11 +32,11 @@ function makepillactive_pohja($currentpage, $thispage) {
             $data->user = Kayttaja::getUserById($_SESSION['logged']);
         }?>
 <nav class="navbar navbar-default" role="navigation">
-    <p class="navbar-text">Kirjautuneena: </p>
+    <p class="navbar-text">Kirjautuneena: <?php $data->user->echoUserFullName(); ?></p>
     <ul class="nav nav-pills navbar-left">
         <li>
             <a href="#">
-                <?php $data->user->echoUserFullName(); ?>
+                Asetukset
             </a>
         </li>
     </ul>
