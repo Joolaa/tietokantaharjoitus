@@ -138,7 +138,14 @@ class Kayttaja {
     }
 
     private function hashThisPassword() {
-        $this->salasana = password_hash($this->salasana, PASSWORD_DEFAULT);
+        $hash = password_hash($this->salasana, PASSWORD_DEFAULT);
+
+        if($hash == false) {
+            return 'Virhe tapahtui';
+        }
+
+        $this->salasana = $hash;
+        return null;
     }
     public function addThisUser() {
 
@@ -150,7 +157,11 @@ class Kayttaja {
         }
 
         $this->convertNamesHtmlEntities();
-        $this->hashThisPassword();
+        $hashingresult = $this->hashThisPassword();
+
+        if(!is_null($hashingresult)) {
+            return $hashingresult;
+        }
 
         $sql = 'INSERT INTO Kayttaja VALUES(DEFAULT, ?, ?, ?, ?)';
         $sqlcmd = getTietokantayhteys()->prepare($sql);
