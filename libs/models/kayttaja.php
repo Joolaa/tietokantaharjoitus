@@ -204,4 +204,22 @@ class Kayttaja {
 
         return $this->updateThisUser();
     }
+
+    public function deleteThisUser() {
+        $sql = 'DELETE FROM kayttaja WHERE id = ?';
+        $sqlcmd = getTietokantayhteys()->prepare($sql);
+        $sqlcmd->execute(array($this->id));
+
+        return null;
+    }
+
+    public function deleteThisUserConfirmPass($password) {
+
+        if(is_null(self::checkLogin($this->username,
+            $password))) {
+                return 'Salasana ei ollut kelvollinen';
+        }
+
+        return $this->deleteThisUser();
+    }
 }

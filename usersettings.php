@@ -64,6 +64,15 @@ if(isset($_GET['email'])) {
         $error = 'Et täyttänyt kaikkia kenttiä';
     }
 } elseif(isset($_GET['delete'])) {
+    if(isset($_POST['password'])) {
+        $error = $userobj->deleteThisUserConfirmPass(
+                    $_POST['password']);
+        if(is_null($error)) {
+            logoutUser();
+        }
+    } else {
+        $error = 'Et antanut salasanaa';
+    }
 }
 
 showView('usersettingsform.php', array(
