@@ -82,7 +82,7 @@
             <input type="password" class="form-control"
              placeholder="Salasana" name="password">
         </div>
-        <button type=submit" class="btn btn-danger">
+        <button type="submit" class="btn btn-danger">
             Poista tili
         </button>
     </div>
