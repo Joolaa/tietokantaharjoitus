@@ -133,7 +133,7 @@ class Kayttaja {
     }
     private function convertNamesHtmlEntities() {
         $this->etunimi = htmlentities($this->etunimi, ENT_QUOTES);
-        $this->sukunimi = htmlentities($this->sukunimi, ENT_QUITES);
+        $this->sukunimi = htmlentities($this->sukunimi, ENT_QUOTES);
     }
 
     private function hashThisPassword() {
