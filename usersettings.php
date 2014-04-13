@@ -64,8 +64,6 @@ if(isset($_GET['email'])) {
     } elseif(!empty($setfields)) {
         $error = 'Et täyttänyt kaikkia kenttiä';
     }
-}
-
 } elseif(isset($_GET['delete'])) {
 }
 
