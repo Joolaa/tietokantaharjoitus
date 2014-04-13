@@ -33,7 +33,7 @@ function makepillactive_pohja($currentpage, $thispage) {
         }?>
 <nav class="navbar navbar-default" role="navigation">
     <ul class="navbar-left">
-        <p>Kirjautuneena: </p>
+        <p class="navbar-text">Kirjautuneena: </p>
     </ul>
     <ul class="nav nav-pills navbar-left">
         <li>
