@@ -26,7 +26,7 @@ if(isset($_GET['email'])) {
 
 } elseif(isset($_GET['firstname'])) {
 
-    if(isset($_POST['firstname']) {
+    if(isset($_POST['firstname'])) {
         $userobj->setEtunimi(htmlentities($_POST['firstname']));
         $error = $userobj->updateThisUser();
 
@@ -36,7 +36,7 @@ if(isset($_GET['email'])) {
     }
 } elseif(isset($_GET['lastname'])) {
 
-    if(isset($_POST['lastname']) {
+    if(isset($_POST['lastname'])) {
         $userobj->setSukunimi(htmlentities($_POST['lastname']));
         $error = $userobj->updateThisUser();
 
