@@ -141,7 +141,7 @@ class Kayttaja {
     }
 
     private function handleEmailCheck() {
-        if(!self::validateEmail($this->email) || strlen($this->email) > 50) {
+        if(!self::validateEmail($this->kayttaja) || strlen($this->kayttaja) > 50) {
             return 'Sähköpostiosoite ei kelvannut';
         }
         if(!self::checkEmailAvailability($this->kayttaja)) {
