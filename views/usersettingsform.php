@@ -49,19 +49,19 @@
     role="form">
     <div class="row-fluid">
         <div class="form-group">
-            <input type="password" class=form-control"
+            <input type="password" class="form-control"
              placeholder="Vanha salasana" name="oldpass">
         </div>
     </div>
     <div class="row-fluid">
         <div class="form-group">
-            <input type="password" class=form-control"
+            <input type="password" class="form-control"
              placeholder="Uusi salasana" name="newpass">
         </div>
     </div>
     <div class="row-fluid">
         <div class="form-group">
-            <input type="password" class=form-control"
+            <input type="password" class="form-control"
              placeholder="Uusi salasana uudestaan"
              name="newpassconfirm">
         </div>
