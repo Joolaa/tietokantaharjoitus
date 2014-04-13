@@ -1,6 +1,5 @@
 <?php
 require_once "libs/tietokantayhteys.php";
-require_once '../password.php'; //not my library
 
 class Kayttaja {
 
