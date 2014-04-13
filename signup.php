@@ -33,7 +33,7 @@ if($postfields === $setfields) {
         $error = 'Salasanat eivät täsmänneet';
     }
 
-} elseif(!empty($setfields)) (
+} elseif(!empty($setfields)) {
     $error = 'Et täyttänyt kaikkia kenttiä';
 }
 
