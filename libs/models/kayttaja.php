@@ -215,7 +215,7 @@ class Kayttaja {
 
     public function deleteThisUserConfirmPass($password) {
 
-        if(is_null(self::checkLogin($this->username,
+        if(is_null(self::checkLogin($this->kayttaja,
             $password))) {
                 return 'Salasana ei ollut kelvollinen';
         }
