@@ -138,10 +138,10 @@ class Kayttaja {
     }
 
     private function hashThisPassword() {
-        $hash = password_hash($this->salasana, PASSWORD_DEFAULT);
+        $hash = password_hash($this->salasana, PASSWORD_BCRYPT);
 
         if($hash == false) {
-            return 'Virhe tapahtui';
+            return 'DEBUG: Virhe tapahtui salasanaa asetettaessa';
         }
 
         $this->salasana = $hash;
