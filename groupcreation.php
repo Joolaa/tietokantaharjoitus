@@ -1,5 +1,8 @@
 <?php
 require_once 'libs/common.php';
+require_once 'libs/models/yhteiso.php';
+require_once 'libs/models/kayttaja.php';
+
 $userobj = isLoggedDirectToLogin();
 
 $error = null;
@@ -15,6 +18,13 @@ if(isset($_POST['name'])) {
     }
 
     if(is_null($error)) {
+        Yhteiso::insertNewGroup($name);
+        $grpobj = Yhteiso::fetchGroupByName($name);
+
+        Yhteiso::insertNewMember($userobj->getId(),
+            $grpobj->getId());
+        Yhteiso::insertNewSupervisor($userobj->getId(),
+            $grpobj->getId());
         $notice = 'Ryhmän luonti onnistui';
     }
 }
