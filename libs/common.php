@@ -73,3 +73,13 @@ function arrayKeysSet($array, $keys) {
 
     return $result;
 }
+
+function prepareTextInput($input, $maxlen = PHP_INT_MAX) {
+    $input = trim($input); 
+    $input = htmlentities($input, ENT_QUOTES);
+    if(($input !== '') && strlen($input) <= $maxlen) {
+        return $input;
+    }
+
+    return null;
+}
