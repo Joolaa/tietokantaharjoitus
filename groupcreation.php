@@ -8,8 +8,8 @@ $userobj = isLoggedDirectToLogin();
 $error = null;
 $notice = null;
 
-if(isset($_POST['name'])) {
-    $name = prepareTextInput($_POST['name']);
+if(isset($_POST['grpname'])) {
+    $name = prepareTextInput($_POST['grpname']);
 
     if(is_null($name)) {
         $error = 'Nimi ei saa olla tyhjä';

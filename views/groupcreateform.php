@@ -3,7 +3,7 @@
 require 'alerttempl.php'; 
 require 'noticetempl.php';?>
 <p>Anna ryhmällesi nimi:</p><br>
-<form action="../groupcreation.php" method="POST"
+<form action="groupcreation.php" method="POST"
     class="form-inline" role="form">
     <div class="row-fluid">
         <input type="text" class="form-control"
