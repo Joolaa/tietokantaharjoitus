@@ -15,6 +15,8 @@ if(isset($_POST['name'])) {
         $error = 'Nimi ei saa olla tyhjä';
     } elseif(strlen($name) > 30) {
         $error = 'Ryhmän nimi liian pitkä';
+    } elseif(!is_null(Yhteiso::fetchGroupByName($name))) {
+        $error = 'Ryhmän nimi on jo varattu';
     }
 
     if(is_null($error)) {
@@ -31,5 +33,6 @@ if(isset($_POST['name'])) {
 
 showView('groupcreateform.php', array(
     'error' => $error,
-    'notice' => $notice
+    'notice' => $notice,
+    'title' => 'Ryhmän luonti'
 ));
