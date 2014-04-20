@@ -19,6 +19,10 @@ class Yhteiso {
         return $this->nimi;
     }
 
+    public funvtion getNimiEncoded() {
+        return htmlentities($this->nimi, ENT_QUOTES, "UTF-8");
+    }
+
     public function setID($id) {
         $this->id = $id;
     }
