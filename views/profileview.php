@@ -7,19 +7,21 @@
         <tr>
         <td><?php echo $sprvsrship->getNimiEncoded() ?></td>
         <td><a class="btn btn-primary">Hallinnoi</a></td>
-        <td><a class="btn btn-danger">Eroa</a></td>
+        <td><a href="groupresign.php?grpid=<?php echo $sprvsrship->getId(); ?>"
+             class="btn btn-danger">Eroa</a></td>
         </tr>
 <?php endforeach;
 foreach($data->memberships as $mbrship):?>
         <tr>
         <td><?php echo $mbrship->getNimiEncoded() ?></td>
-        <td><a class="btn btn-danger">Eroa</a></td>
+        <td><a href="groupresign.php?grpid=<?php echo $mbrship->getId(); ?>" 
+            class="btn btn-danger">Eroa</a></td>
         <td></td>
         </tr>
 <?php endforeach; ?>
     </table>
 <?php endif; ?>
-    <a href= "groupcreation.php" class="btn btn-primary">
+    <a href="groupcreation.php" class="btn btn-primary">
         Ryhmän luonti
     </a>
 </div>
