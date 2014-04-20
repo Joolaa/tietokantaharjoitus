@@ -27,6 +27,10 @@ class Yhteiso {
         $this->nimi = $nimi;
     }
 
+    public function __toString() {
+        return serialize($this);
+    }
+
     public static function fetchAll() {
         $sql = "SELECT id, nimi FROM yhteiso";
         $kysely = getTietokantayhteys()->prepare($sql);
