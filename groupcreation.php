@@ -9,7 +9,7 @@ $error = null;
 $notice = null;
 
 if(isset($_POST['grpname'])) {
-    $name = prepareTextInput($_POST['grpname']);
+    $name = trim($_POST['grpname']);
 
     if(is_null($name)) {
         $error = 'Nimi ei saa olla tyhjä';
