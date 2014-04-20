@@ -22,9 +22,10 @@ if(isset($_POST['password'])) {
 
         //if a group does not have any members or supervisors left,
         //then delete the group 
-        if(empty(Yhteiso::fetchAllSupervisors($grpid)) ||
-            empty(Yhteiso::fetchAllMembers($grpid))) {
-                Yhteiso::deleteGroup($grpid);
+        $grpmembers = Yhteiso::fetchAllMembers($grpid);
+        $grpsupervisors = Yhteiso::fetchAllSupervisors($grpid);
+        if(empty($grpsupervisors) || empty($grpmembers)) {
+            Yhteiso::deleteGroup($grpid);
         }
 
         header('Location: profile.php');
