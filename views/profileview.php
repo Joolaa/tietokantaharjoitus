@@ -5,14 +5,14 @@
     <table class="table">
 <?php foreach($data->supervisorships as $sprvsrship): ?>
         <tr>
-        <td><?php echo $sprvsrship->getNimi() ?></td>
+        <td><?php echo $sprvsrship->getNimiEncoded() ?></td>
         <td><a class="btn btn-primary">Hallinnoi</a></td>
         <td><a class="btn btn-danger">Eroa</a></td>
         </tr>
 <?php endforeach;
 foreach($data->memberships as $mbrship):?>
         <tr>
-        <td><?php echo $mbrship->getNimi() ?></td>
+        <td><?php echo $mbrship->getNimiEncoded() ?></td>
         <td><a class="btn btn-danger">Eroa</a></td>
         <td></td>
         </tr>
