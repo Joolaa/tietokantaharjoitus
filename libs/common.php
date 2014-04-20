@@ -76,7 +76,7 @@ function arrayKeysSet($array, $keys) {
 
 function prepareTextInput($input, $maxlen = PHP_INT_MAX) {
     $input = trim($input); 
-    $input = htmlentities($input, ENT_QUOTES);
+    $input = htmlentities($input, ENT_QUOTES, "UTF-8");
     if(($input !== '') && strlen($input) <= $maxlen) {
         return $input;
     }

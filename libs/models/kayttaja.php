@@ -136,8 +136,8 @@ class Kayttaja {
         return filter_var($email, FILTER_VALIDATE_EMAIL);
     }
     private function convertNamesHtmlEntities() {
-        $this->etunimi = htmlentities($this->etunimi, ENT_QUOTES);
-        $this->sukunimi = htmlentities($this->sukunimi, ENT_QUOTES);
+        $this->etunimi = htmlentities($this->etunimi, ENT_QUOTES, "UTF-8");
+        $this->sukunimi = htmlentities($this->sukunimi, ENT_QUOTES, "UTF-8");
     }
 
     private function handleEmailCheck() {
