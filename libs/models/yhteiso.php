@@ -19,7 +19,7 @@ class Yhteiso {
         return $this->nimi;
     }
 
-    public funvtion getNimiEncoded() {
+    public function getNimiEncoded() {
         return htmlentities($this->nimi, ENT_QUOTES, "UTF-8");
     }
 
