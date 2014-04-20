@@ -2,7 +2,7 @@
 <?php if(empty($data->memberships) && empty($data->supervisorships)):?>
     <p>Et ole minkään ryhmän jäsen.</p>
 <?php else: ?> 
-    <table>
+    <table class="table">
 <?php foreach($data->supervisorships as $sprvsrship): ?>
         <td><?php echo $sprvsrship->getNimi() ?></td>
         <td><a class="btn btn-primary">Hallinnoi</a></td>
