@@ -98,6 +98,38 @@ class Yhteiso {
         $sqlcmd->execute(array($usrId, $grpId));
     }
 
+    public static function fetchAllMembers($grpId) {
+        $sql = "SELECT kayttaja_id, yhteiso_id FROM yhteiso_kayttaja WHERE yhteiso_id = ?";
+        $query = getTietokantayhteys()->prepare($sql);
+        $query->execute(array($grpId));
+
+        $results = array();
+
+        foreach($query->fetchAll(PDO::FETCH_OBJ) as $result) {
+            $usrid = $result->kayttaja_id;
+
+            $results[] = $usrid;
+        }
+
+        return $results;
+    }
+
+    public static function fetchAllSupervisors($grpId) {
+        $sql = "SELECT kayttaja_id, yhteiso_id FROM yhteison_johtajat WHERE yhteiso_id = ?";
+        $query = getTietokantayhteys()->prepare($sql);
+        $query->execute(array($grpId));
+
+        $results = array();
+
+        foreach($query->fetchAll(PDO::FETCH_OBJ) as $result) {
+            $usrid = $result->kayttaja_id;
+
+            $results[] = $usrid;
+        }
+
+        return $results;
+    }
+
     public static function fetchAllMemberships($usrId) {
         $sql = "SELECT kayttaja_id, yhteiso_id FROM yhteiso_kayttaja WHERE kayttaja_id = ?";
         $query = getTietokantayhteys()->prepare($sql);
@@ -132,6 +164,24 @@ class Yhteiso {
         }
 
         return $results;
+    }
+
+    public static function removeMember($usrId, $grpId) {
+        $sql = "DELETE FROM yhteiso_kayttaja WHERE kayttaja_id = ? AND yhteiso_id = ?";
+        $sqlcmd = getTietokantayhteys()->prepare($sql);
+        $sqlcmd->execute(array($usrId, $grpId));
+    }
+
+    public static function removeSupervisor($usrId, $grpId) {
+        $sql = "DELETE FROM yhteison_johtajat WHERE kayttaja_id = ? AND yhteiso_id = ?";
+        $sqlcmd = getTietokantayhteys()->prepare($sql);
+        $sqlcmd->execute(array($usrId, $grpId));
+    }
+
+    public static function deleteGroup($grpId) {
+        $sql = "DELETE FROM yhteiso WHERE id = ?";
+        $sqlcmd = getTietokantayhteys()->prepare($sql);
+        $sqlcmd->execute(array($grpId));
     }
 
 }
