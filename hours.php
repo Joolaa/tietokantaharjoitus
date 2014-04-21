@@ -2,6 +2,7 @@
 require_once "libs/common.php";
 require_once "libs/models/kayttaja.php";
 require_once "libs/models/tyoaika.php";
+require_once "libs/models/yhteiso.php";
 
 $pagenum = 1;
 $entriesDisplayed = 10;

@@ -28,6 +28,11 @@ if($totalEntries == 0) {
     $notice = 'Et ole kirjannut työtunteja';
 }
 
+$memberships = Yhteiso::fetchAllMemberships($user->getId());
+if($adding && empty($memberships)) {
+    $error = 'Sinun täytyy olla jonkin ryhmän jäsen jotta voisit kirjata työtunteja';
+}
+
 showView('hoursview.php', array(
     'notice' => $notice,
     'error' => $error,
