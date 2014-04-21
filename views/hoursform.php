@@ -16,7 +16,6 @@ if($data->adding) {
             <option value="<?php echo $group->getId(); ?>"><?php echo $group->getNimi(); ?></option>
             <?php endforeach; ?>
         </select>
-        <input type="submit">
     </div>
     Alkuaika:<br>
     <div class="row-fluid">
