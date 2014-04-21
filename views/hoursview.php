@@ -36,6 +36,7 @@ Näytä kerralla:
             <th>Mistä?</th>
             <th>Mihin?</th>
             <th>Tunteja</th>
+            <th>Ryhmä</th>
             <th>Aihe</th>
             <th>Muokkaa</th>
         </tr>
@@ -49,6 +50,9 @@ Näytä kerralla:
             </td>
             <td>
             <?php echoFormatHoursMins($entry->getTunteja()); ?>
+            </td>
+            <td>
+            <?php echo $entry->getYhteisoNimi(); ?>
             </td>
             <td>
             <?php echo $entry->getAihe(); ?>

@@ -13,9 +13,10 @@ if($data->adding) {
     <div class="row-fluid">
         <select class="form-control" name="group">
             <?php foreach($data->groups as $group): ?>
-            <option><?php echo $group->getNimi(); ?></option>
+            <option value="<?php echo $group->getId(); ?>"><?php echo $group->getNimi(); ?></option>
             <?php endforeach; ?>
         </select>
+        <input type="submit">
     </div>
     Alkuaika:<br>
     <div class="row-fluid">

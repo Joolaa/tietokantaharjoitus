@@ -36,8 +36,8 @@ if(isset($_GET['delete'])) {
 //$sometrue = false;
 //$alltrue = true;
 
-$postfields = array('startday', 'startmonth', 'startyear',
-    'starthour', 'startminute', 'endday', 'endmonth',
+$postfields = array('group', 'startday', 'startmonth',
+    'startyear', 'starthour', 'startminute', 'endday', 'endmonth',
     'endyear', 'endhour', 'endminute');
 
 $keysSet = arrayKeysSet($_POST, $postfields);
@@ -62,9 +62,11 @@ if($postfields === $keysSet) {
         $topic = '-';
     }
 
+    $groupid = $_POST['group'];
+
 
     if(validateDate($startdate) && validateDate($enddate)) {
-        $tyoaika = new Tyoaika(0, $startdate, $enddate, $topic, 0);
+        $tyoaika = new Tyoaika(0, $startdate, $enddate, $topic, 0, $groupid);
     } else {
         $error = 'Päivämäärä tai kellonaika ei ollut kelvollinen';
     }

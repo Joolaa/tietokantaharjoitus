@@ -10,9 +10,10 @@ class Tyoaika {
     private $tunteja;
     private $aihe;
     private $kayttaja_id;
+    private $yhteiso_id;
 
     public function __construct($id, $alkuaika, $loppuaika,
-        $aihe, $kayttaja_id) {
+        $aihe, $kayttaja_id, $yhteiso_id) {
 
             $this->id = $id;
             $this->alkuaika = new DateTime($alkuaika);
@@ -20,6 +21,7 @@ class Tyoaika {
             $this->tunteja = date_diff($this->alkuaika, $this->loppuaika);
             $this->aihe = $aihe;
             $this->kayttaja_id = $kayttaja_id;
+            $this->yhteiso_id = $yhteiso_id;
         }
 
     public function getId() {
@@ -61,6 +63,31 @@ class Tyoaika {
         $this->kayttaja_id = $kayttaja_id;
     }
 
+    public function getYhteisoId() {
+        return $this->yhteiso_id;
+    }
+
+    public function setYhteisoId($yhteiso_id) {
+        $this->yhteiso_id = $yhteiso_id;
+    }
+
+    //technically does not belong here, but is handy
+    public function getYhteisoNimi() {
+        if(!isset($this->yhteiso_id)) {
+            return '';
+        }
+        $sql = "SELECT id, nimi FROM yhteiso WHERE id = ? LIMIT 1";
+        $query = getTietokantayhteys()->prepare($sql);
+        $query->execute(array($this->yhteiso_id));
+
+        $result = $query->fetchObject();
+
+        if(!is_null($result)) {
+            return $result->nimi;
+        }
+        return '';
+    }
+
     public static function searchPagedSortByStartTime($userId,
         $amount, $page) {
         $sql = "SELECT * FROM Tyoaikadata WHERE kayttaja_id = ? ORDER BY alkuaika DESC LIMIT ? OFFSET ?";
@@ -72,7 +99,8 @@ class Tyoaika {
         foreach($query->fetchAll(PDO::FETCH_OBJ) as $result) {
             $tyoaika = new Tyoaika($result->id,
                 $result->alkuaika, $result->loppuaika,
-                $result->aihe, $result->kayttaja_id);
+                $result->aihe, $result->kayttaja_id,
+                $result->yhteiso_id);
 
             $results[] = $tyoaika;
         }
@@ -96,18 +124,18 @@ class Tyoaika {
 
     public static function updateRow($rowId,
         $userId, $tyoaika) {
-        $sql = "UPDATE Tyoaikadata SET alkuaika = ?, loppuaika = ?, aihe = ? WHERE id = ? AND kayttaja_id = ?";
+        $sql = "UPDATE Tyoaikadata SET alkuaika = ?, loppuaika = ?, aihe = ? yhteiso_id = ? WHERE id = ? AND kayttaja_id = ?";
         $sqlcmd = getTietokantayhteys()->prepare($sql);
         $sqlcmd->execute(array(formatDateStandard($tyoaika->getAlkuaika()),
-            formatDateStandard($tyoaika->getLoppuaika()), $tyoaika->getAihe(),
+            formatDateStandard($tyoaika->getLoppuaika()), $tyoaika->getAihe(), $tyoaika->getYhteisoId(),
             $rowId, $userId));
     }
 
     public static function addRow($userId, $tyoaika) {
-        $sql = "INSERT INTO Tyoaikadata(id, alkuaika, loppuaika, aihe, kayttaja_id) VALUES(DEFAULT, ?, ?, ?, ?)";
+        $sql = "INSERT INTO Tyoaikadata(id, alkuaika, loppuaika, aihe, kayttaja_id, yhteiso_id) VALUES(DEFAULT, ?, ?, ?, ?, ?)";
         $sqlcmd = getTietokantayhteys()->prepare($sql);
         $sqlcmd->execute(array(formatDateStandard($tyoaika->getAlkuaika()),
-            formatDateStandard($tyoaika->getLoppuaika()), $tyoaika->getAihe(),
+            formatDateStandard($tyoaika->getLoppuaika()), $tyoaika->getAihe(), $tyoaika->getYhteisoId(),
             $userId));
     }
 }
