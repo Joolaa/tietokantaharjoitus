@@ -31,6 +31,7 @@ if($totalEntries == 0) {
 $memberships = Yhteiso::fetchAllMemberships($user->getId());
 if($adding && empty($memberships)) {
     $error = 'Sinun täytyy olla jonkin ryhmän jäsen jotta voisit kirjata työtunteja';
+    $adding = false;
 }
 
 showView('hoursview.php', array(
