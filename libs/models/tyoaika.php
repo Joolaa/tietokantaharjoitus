@@ -135,7 +135,7 @@ class Tyoaika {
         $sql = "INSERT INTO Tyoaikadata(id, alkuaika, loppuaika, aihe, kayttaja_id, yhteiso_id) VALUES(DEFAULT, ?, ?, ?, ?, ?)";
         $sqlcmd = getTietokantayhteys()->prepare($sql);
         $sqlcmd->execute(array(formatDateStandard($tyoaika->getAlkuaika()),
-            formatDateStandard($tyoaika->getLoppuaika()), $tyoaika->getAihe(), $tyoaika->getYhteisoId(),
-            $userId));
+            formatDateStandard($tyoaika->getLoppuaika()), $tyoaika->getAihe(),
+            $userId, $tyoaika->getYhteisoId()));
     }
 }
