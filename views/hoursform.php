@@ -9,6 +9,14 @@ if($data->adding) {
 ?>
 <form action="<?php echo $formdestination; ?>" method="POST" 
     class="form-inline" role="form">
+    Ryhmä:<br>
+    <div class="row-fluid">
+        <select class="form-control" name="group">
+            <?php foreach($data->groups as $group): ?>
+            <option><?php echo $group->getNimi(); ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
     Alkuaika:<br>
     <div class="row-fluid">
         <div class="form-group">

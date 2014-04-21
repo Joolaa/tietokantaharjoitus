@@ -43,5 +43,6 @@ showView('hoursview.php', array(
     'pagenum' => $pagenum,
     'entriesPerPage' => $entriesDisplayed,
     'editId' => $editId,
-    'adding' => $adding
+    'adding' => $adding,
+    'groups' => $memberships
 ));
