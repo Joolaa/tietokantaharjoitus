@@ -124,7 +124,7 @@ class Tyoaika {
 
     public static function updateRow($rowId,
         $userId, $tyoaika) {
-        $sql = "UPDATE Tyoaikadata SET alkuaika = ?, loppuaika = ?, aihe = ? yhteiso_id = ? WHERE id = ? AND kayttaja_id = ?";
+        $sql = "UPDATE Tyoaikadata SET alkuaika = ?, loppuaika = ?, aihe = ?, yhteiso_id = ? WHERE id = ? AND kayttaja_id = ?";
         $sqlcmd = getTietokantayhteys()->prepare($sql);
         $sqlcmd->execute(array(formatDateStandard($tyoaika->getAlkuaika()),
             formatDateStandard($tyoaika->getLoppuaika()), $tyoaika->getAihe(), $tyoaika->getYhteisoId(),
