@@ -68,7 +68,8 @@ if($postfields === $keysSet) {
     $groupid = $_POST['group'];
 
 
-    if(validateDate($startdate) && validateDate($enddate)) {
+    if(validateDate($startdate) && validateDate($enddate)
+        && ($startdate <= $enddate)) {
         $tyoaika = new Tyoaika(0, $startdate, $enddate, $topic, 0, $groupid);
     } else {
         $error = 'Päivämäärä tai kellonaika ei ollut kelvollinen';
