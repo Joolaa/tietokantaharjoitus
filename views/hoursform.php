@@ -8,6 +8,32 @@ if($data->adding) {
 }
 
 $dflthours = $data->hoursdata;
+
+$dfltstartday = '';
+$dfltstartmonth = '';
+$dfltstartyear = '';
+$dfltstarthour = '';
+$dfltstartminute = '';
+$dfltendday = '';
+$dfltendmonth = '';
+$dfltendyear = '';
+$dfltendhour = '';
+$dfltendminute = '';
+$dflttopic = '';
+
+if(!is_null($dflthours)) {
+    $dfltstartday = 'value='.$dflthours->getStartDay();
+    $dfltstartmonth = 'value='.$dflthours->getStartMonth();
+    $dfltstartyear = 'value='.$dflthours->getStartYear();
+    $dfltstarthour = 'value='.$dflthours->getStartHour();
+    $dfltstartminute = 'value='.$dflthours->getStartMinute();
+    $dfltendday = 'value='.$dflthours->getEndDay();
+    $dfltendmonth = 'value='.$dflthours->getEndMonth();
+    $dfltendyear = 'value='.$dflthours->getEndYear();
+    $dfltendhour = 'value='.$dflthours->getEndHour();
+    $dfltendminute = 'value='.$dflthours->getEndMinute();
+    $dflttopic = 'value='.$dflthours->getAihe;
+}
 ?>
 <form action="<?php echo $formdestination; ?>" method="POST" 
     class="form-inline" role="form">
@@ -24,35 +50,30 @@ $dflthours = $data->hoursdata;
         <div class="form-group">
             <input type="text" size="2" class="form-control" 
              placeholder="pp" name="startday"
-             <?php issetEcho($dflthours,
-              'value='.$dflthours->getStartDay());?>>
+             <?php echo $dfltstartday;?>>
         </div> /
         <div class="form-group">
             <input type="text" size="2" class="form-control" 
              placeholder="kk" name="startmonth"
-             <?php issetEcho($dflthours,
-              'value='.$dflthours->getStartMonth());?>>
+             <?php echo $dfltstartmonth;?>>
 
         </div> /
         <div class="form-group">
             <input type="text" size="4" class="form-control" 
              placeholder="yyyy" name="startyear"
-             <?php issetEcho($dflthours,
-              'value='.$dflthours->getStartYear());?>>
+             <?php echo $dfltstartyear;?>>
         </div>
     </div>
     <div class="row-fluid">
         <div class="form-group">
                 <input type="text" size="2" class="form-control" 
                 placeholder="tt" name="starthour"
-                <?php issetEcho($dflthours,
-                 'value='.$dflthours->getStartHour());?>>
+                <?php echo $dfltstarthour;?>>
         </div> :
         <div class="form-group">
             <input type="text" size="2" class="form-control" 
              placeholder="mm" name="startminute"
-             <?php issetEcho($dflthours,
-              'value='.$dflthours->getStartMinute());?>>
+             <?php echo $dfltstartminute;?>>
         </div>
     </div>
     Loppuaika:<br>
@@ -60,34 +81,29 @@ $dflthours = $data->hoursdata;
         <div class="form-group">
             <input type="text" size="2" class="form-control" 
              placeholder="pp" name="endday"
-             <?php issetEcho($dflthours,
-              'value='.$dflthours->getEndDay());?>>
+             <?php echo $dfltendday;?>>
         </div> /
         <div class="form-group">
             <input type="text" size="2" class="form-control" 
              placeholder="kk" name="endmonth"
-             <?php issetEcho($dflthours,
-              'value='.$dflthours->getEndMonth());?>>
+             <?php echo $dfltendmonth;?>>
         </div> /
         <div class="form-group">
             <input type="text" size="4" class="form-control" 
              placeholder="yyyy" name="endyear"
-             <?php issetEcho($dflthours,
-              'value='.$dflthours->getEndYear());?>>
+             <?php echo $dfltendyear;?>>
         </div>
     </div>
     <div class="row-fluid">
         <div class="form-group">
                 <input type="text" size="2" class="form-control" 
                 placeholder="tt" name="endhour"
-                <?php issetEcho($dflthours,
-                 'value='.$dflthours->getEndHour());?>>
+                <?php echo $dfltendhour;?>>
         </div> :
         <div class="form-group">
             <input type="text" size="2" class="form-control" 
              placeholder="mm" name="endminute"
-             <?php issetEcho($dflthours,
-              'value='.$dflthours->getEndMinute());?>>
+             <?php echo $dfltendminute;?>>
         </div>
     </div>
     Aihe:<br>
@@ -95,8 +111,7 @@ $dflthours = $data->hoursdata;
         <div class="form-group">
             <input type="text" class="form-control" 
             placeholder="Aihe" name="topic"
-             <?php issetEcho($dflthours,
-              'value='.$dflthours->getAihe());?>>
+             <?php echo $dflttopic;?>>
         </div>
     </div>
     <div class="row">
