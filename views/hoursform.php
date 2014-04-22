@@ -45,7 +45,7 @@ function echoIfTrue($bool, $string) {
 ?>
 <form action="<?php echo $formdestination; ?>" method="POST" 
     class="form-inline" role="form">
-    Ryhmä:<br>
+        Ryhmä:<?php echo $dfltgrpid ?><br>
     <div class="row-fluid">
         <select class="form-control" name="group">
             <?php foreach($data->groups as $group): ?>
