@@ -53,11 +53,10 @@ foreach($postfields as $postfield) {
 
  */
 $error = null;
-$postfieldsallset = false;
+$allclear = false;
 
 
 if($postfields === $keysSet) {
-    $postfieldsallset = true;
     $startdate = makeDateString($_POST['startday'], $_POST['startmonth'], $_POST['startyear'], $_POST['starthour'], $_POST['startminute']);
     $enddate = makeDateString($_POST['endday'], $_POST['endmonth'], $_POST['endyear'], $_POST['endhour'], $_POST['endminute']);
     if(isset($_POST['topic'])) {
@@ -68,9 +67,10 @@ if($postfields === $keysSet) {
 
     $groupid = $_POST['group'];
 
+    $tyoaika = new Tyoaika(0, $startdate, $enddate, $topic, 0, $groupid);
 
     if(validateDate($startdate) && validateDate($enddate)) {
-        $tyoaika = new Tyoaika(0, $startdate, $enddate, $topic, 0, $groupid);
+        $allclear = true;
     } else {
         $error = 'Päivämäärä tai kellonaika ei ollut kelvollinen';
     }
