@@ -7,6 +7,8 @@ require_once "libs/models/yhteiso.php";
 $pagenum = 1;
 $entriesDisplayed = 10;
 
+$tyoaika = null;
+
 if(isset($_GET['pagenum'])) {
     $pagenum = (int) $_GET['pagenum'];
 }
@@ -17,6 +19,7 @@ if(isset($_GET['entriesDisplayed'])) {
 
 if(isset($_GET['edit'])) {
     $editId = (int) $_GET['edit'];
+    $tyoaika = Tyoaika::fetchHoursById($editId);
 } else {
     $editId = null;
 }
@@ -51,7 +54,6 @@ foreach($postfields as $postfield) {
  */
 $error = null;
 
-$tyoaika = null;
 
 if($postfields === $keysSet) {
     $startdate = makeDateString($_POST['startday'], $_POST['startmonth'], $_POST['startyear'], $_POST['starthour'], $_POST['startminute']);

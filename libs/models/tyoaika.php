@@ -31,6 +31,47 @@ class Tyoaika {
     public function setId($id) {
         $this->id = $id;
     }
+
+    public function getStartDay() {
+        return date("d", $this->alkuaika);
+    }
+
+    public function getStartMonth() {
+        return date("m", $this->alkuaika);
+    }
+
+    public function getStartYear() {
+        return date("d", $this->alkuaika);
+    }
+
+    public function getStartHour() {
+        return date("H", $this->alkuaika);
+    }
+
+    public function getStartMinute() {
+        return date("i", $this->alkuaika);
+    }
+
+    public function getEndDay() {
+        return date("d", $this->loppuaika);
+    }
+
+    public function getEndMonth() {
+        return date("m", $this->loppuaika);
+    }
+
+    public function getEndYear() {
+        return date("d", $this->loppuaika);
+    }
+
+    public function getEndHour() {
+        return date("H", $this->loppuaika);
+    }
+
+    public function getEndMinute() {
+        return date("i", $this->loppuaika);
+    }
+
     public function getAlkuaika() {
         return $this->alkuaika;
     }
@@ -137,5 +178,21 @@ class Tyoaika {
         $sqlcmd->execute(array(formatDateStandard($tyoaika->getAlkuaika()),
             formatDateStandard($tyoaika->getLoppuaika()), $tyoaika->getAihe(),
             $userId, $tyoaika->getYhteisoId()));
+    }
+
+    public static function fetchHoursById($id) {
+        $sql = "SELECT * FROM tyoaikadata WHERE id = ?";
+        $query = getTietokantayhteys()->prepare($sql);
+        $query->execute(array($id));
+
+        $result = $query->fetchObject();
+
+        if($result == null) {
+            return null;
+        }
+
+        return new Tyoaika($id, $result->alkuaika,
+            $result->loppuaika, $result->aihe, $result->kayttaja_id,
+            $result->yhteiso_id));
     }
 }

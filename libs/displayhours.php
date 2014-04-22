@@ -11,7 +11,7 @@ if(!is_null($deleteId)) {
     header('Location: hours.php?pagenum='.$pagenum.'&entriesDisplayed='.$entriesDisplayed);
 }
 
-if(!is_null($tyoaika)) {
+if(!is_null($tyoaika) && is_null($error)) {
     $tyoaika->setKayttajaId($user->getId());
 
     if(!is_null($editId)) {
@@ -44,5 +44,6 @@ showView('hoursview.php', array(
     'entriesPerPage' => $entriesDisplayed,
     'editId' => $editId,
     'adding' => $adding,
-    'groups' => $memberships
+    'groups' => $memberships,
+    'hoursdata' => $tyoaika
 ));
