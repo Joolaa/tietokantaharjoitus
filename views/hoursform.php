@@ -32,7 +32,7 @@ if(!is_null($dflthours)) {
     $dfltendyear = 'value='.$dflthours->getEndYear();
     $dfltendhour = 'value='.$dflthours->getEndHour();
     $dfltendminute = 'value='.$dflthours->getEndMinute();
-    $dflttopic = 'value='.$dflthours->getAihe;
+    $dflttopic = 'value='.$dflthours->getAihe();
 }
 ?>
 <form action="<?php echo $formdestination; ?>" method="POST" 
