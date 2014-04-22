@@ -67,13 +67,15 @@ if($postfields === $keysSet) {
 
     $groupid = $_POST['group'];
 
-    $tyoaika = new Tyoaika(0, $startdate, $enddate, $topic, 0, $groupid);
 
     if(validateDate($startdate) && validateDate($enddate)) {
-        $allclear = true;
+        $tyoaika = new Tyoaika(0, $startdate, $enddate, $topic, 0, $groupid);
     } else {
         $error = 'Päivämäärä tai kellonaika ei ollut kelvollinen';
     }
+
+    $allclear = true;
+
 } elseif(!empty($keysSet)) {
     $error = 'Et täyttänyt kaikkia pakollisia kenttiä';
 }
