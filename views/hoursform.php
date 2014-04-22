@@ -23,7 +23,7 @@ $dfltendminute = '';
 $dflttopic = '';
 
 if(!is_null($dflthours)) {
-    $dfltgrpname = $dflthours->getNimi();
+    $dfltgrpname = $dflthours->getYhteisoNimi();
     $dfltstartday = 'value='.$dflthours->getStartDay();
     $dfltstartmonth = 'value='.$dflthours->getStartMonth();
     $dfltstartyear = 'value='.$dflthours->getStartYear();
@@ -49,7 +49,7 @@ function echoIfTrue($bool, $string) {
     <div class="row-fluid">
         <select class="form-control" name="group">
             <?php foreach($data->groups as $group): ?>
-            <option value="<?php echo $group->getId(); ?>"<?php echoIfTrue(strcmp($dfltgrpname, $group->getNimi()) === 0, ' selected'); ?>><?php echo $group->getNimi(); ?></option>
+            <option value="<?php echo $group->getId(); ?>"<?php echoIfTrue(strcmp($dfltgrpname, $group->getYhteisoNimi()) === 0, ' selected'); ?>><?php echo $group->getNimi(); ?></option>
             <?php endforeach; ?>
         </select>
     </div>
