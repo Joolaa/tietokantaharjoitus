@@ -41,7 +41,7 @@ if(!is_null($dflthours)) {
     <div class="row-fluid">
         <select class="form-control" name="group">
             <?php foreach($data->groups as $group): ?>
-            <option value="<?php echo $group->getId(); ?>"<?php if($data->editId === $group->getId()) {echo ' selected'}; ?>><?php echo $group->getNimi(); ?></option>
+            <option value="<?php echo $group->getId(); ?>"<?php if($data->editId === $group->getId()) {echo ' selected';} ?>><?php echo $group->getNimi(); ?></option>
             <?php endforeach; ?>
         </select>
     </div>
