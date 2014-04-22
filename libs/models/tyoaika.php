@@ -33,43 +33,43 @@ class Tyoaika {
     }
 
     public function getStartDay() {
-        return date("d", $this->alkuaika);
+        return $this->alkuaika->format('d');
     }
 
     public function getStartMonth() {
-        return date("m", $this->alkuaika);
+        return $this->alkuaika->format('m');
     }
 
     public function getStartYear() {
-        return date("d", $this->alkuaika);
+        return $this->alkuaika->format('Y');
     }
 
     public function getStartHour() {
-        return date("H", $this->alkuaika);
+        return $this->alkuaika->format('H');
     }
 
     public function getStartMinute() {
-        return date("i", $this->alkuaika);
+        return $this->alkuaika->format('i');
     }
 
     public function getEndDay() {
-        return date("d", $this->loppuaika);
+        return $this->loppuaika->format('d');
     }
 
     public function getEndMonth() {
-        return date("m", $this->loppuaika);
+        return $this->loppuaika->format('m');
     }
 
     public function getEndYear() {
-        return date("d", $this->loppuaika);
+        return $this->loppuaika->format('Y');
     }
 
     public function getEndHour() {
-        return date("H", $this->loppuaika);
+        return $this->loppuaika->format('h');
     }
 
     public function getEndMinute() {
-        return date("i", $this->loppuaika);
+        return $this->loppuaika->format('i');
     }
 
     public function getAlkuaika() {
