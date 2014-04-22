@@ -36,6 +36,12 @@ if(!is_null($dflthours)) {
     $dfltendminute = 'value='.$dflthours->getEndMinute();
     $dflttopic = 'value='.$dflthours->getAihe();
 }
+
+function echoIfTrue($bool, $string) {
+    if($bool) {
+        echo $string;
+    }
+}
 ?>
 <form action="<?php echo $formdestination; ?>" method="POST" 
     class="form-inline" role="form">
@@ -43,7 +49,7 @@ if(!is_null($dflthours)) {
     <div class="row-fluid">
         <select class="form-control" name="group">
             <?php foreach($data->groups as $group): ?>
-            <option value="<?php echo $group->getId(); ?>"<?php if($dfltgrpid === $group->getId()) {echo ' selected';} ?>><?php echo $group->getNimi(); ?></option>
+            <option value="<?php echo $group->getId(); ?>"<?php echoIfTrue($dfltgrpid === $group->getId(), ' selected'); ?>><?php echo $group->getNimi(); ?></option>
             <?php endforeach; ?>
         </select>
     </div>
