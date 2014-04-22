@@ -193,6 +193,6 @@ class Tyoaika {
 
         return new Tyoaika($id, $result->alkuaika,
             $result->loppuaika, $result->aihe, $result->kayttaja_id,
-            $result->yhteiso_id));
+            $result->yhteiso_id);
     }
 }
