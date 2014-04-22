@@ -9,7 +9,7 @@ if($data->adding) {
 
 $dflthours = $data->hoursdata;
 
-$dfltgrpid = null;
+$dfltgrpname = '';
 $dfltstartday = '';
 $dfltstartmonth = '';
 $dfltstartyear = '';
@@ -23,7 +23,7 @@ $dfltendminute = '';
 $dflttopic = '';
 
 if(!is_null($dflthours)) {
-    $dfltgrpid = $dflthours->getId();
+    $dfltgrpname = $dflthours->getNimi();
     $dfltstartday = 'value='.$dflthours->getStartDay();
     $dfltstartmonth = 'value='.$dflthours->getStartMonth();
     $dfltstartyear = 'value='.$dflthours->getStartYear();
@@ -45,11 +45,11 @@ function echoIfTrue($bool, $string) {
 ?>
 <form action="<?php echo $formdestination; ?>" method="POST" 
     class="form-inline" role="form">
-        Ryhmä:<?php echo $dfltgrpid ?><br>
+        Ryhmä:<br>
     <div class="row-fluid">
         <select class="form-control" name="group">
             <?php foreach($data->groups as $group): ?>
-            <option value="<?php echo $group->getId(); ?>"<?php echoIfTrue($dfltgrpid === $group->getId(), ' selected'); ?>><?php echo $group->getNimi(); ?></option>
+            <option value="<?php echo $group->getId(); ?>"<?php echoIfTrue(strcmp($dfltgrpname, $group->getNimi()) === 0, ' selected'); ?>><?php echo $group->getNimi(); ?></option>
             <?php endforeach; ?>
         </select>
     </div>
