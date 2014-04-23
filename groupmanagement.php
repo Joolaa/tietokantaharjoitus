@@ -32,7 +32,7 @@ if(isset($_POST['invite'])) {
 
 }
 
-showView('groupmanageview.php' array(
+showView('groupmanageview.php', array(
     'title' => 'Hallinnoi ryhmää',
     'grpid' => $grpid,
     'notice' => $notice,
