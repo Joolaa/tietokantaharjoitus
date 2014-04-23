@@ -23,13 +23,13 @@ if(isset($_POST['invite'])) {
         $error = 'Et voi kutsua itseäsi';
     } elseif(Kayttaja::checkEmailAvailability($email)) {
         $error = 'Käyttäjää ei löytynyt';
-    } elseif(Yhteiso::checkIfInvited($inviteobj->getId(), $grpId)) {
+    } elseif(Yhteiso::checkIfInvited($inviteobj->getId(), $grpid)) {
         $error = 'Käyttäjä on jo kutsuttu';
     }
 
     if(is_null($error)) {
         $notice = 'Kutsu on lähetetty käyttäjälle';
-        Yhteiso::insertInvitation($inviteobj->getId(), $grpId);
+        Yhteiso::insertInvitation($inviteobj->getId(), $grpid);
     }
 
 }
