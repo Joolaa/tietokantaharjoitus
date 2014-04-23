@@ -14,5 +14,5 @@ showView('profileview.php', array(
     'user' => $userobj,
     'memberships' => $memberships,
     'supervisorships' => $supervisorships,
-    'invitations' => $invititations
+    'invitations' => $invitations
 ));

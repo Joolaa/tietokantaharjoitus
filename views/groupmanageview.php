@@ -1,4 +1,5 @@
 <?php require 'alerttempl.php'; ?>
+<?php require 'noticetempl.php'; ?>
 <div class="rightelem">
     <p>Kutsu käyttäjä ryhmään:</p>
     <form class="form-inline" method="POST"
