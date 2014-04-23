@@ -14,7 +14,7 @@
 <?php if(empty($data->memberships) && empty($data->supervisorships)):?>
     <p>Et ole minkään ryhmän jäsen.</p>
 <?php else: ?> 
-    <p>Jäsenyydet</p>
+    <p>Jäsenyydet:</p>
     <table class="table">
 <?php foreach($data->supervisorships as $sprvsrship): ?>
         <tr>

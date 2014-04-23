@@ -20,7 +20,7 @@ if(isset($_POST['invite'])) {
     $inviteobj = Kayttaja::fetchByEmailOnly($email);
 
     if(strcmp($userobj->getKayttaja(), $email) === 0) {
-        $error = 'Et voi kutsua itseäsi'
+        $error = 'Et voi kutsua itseäsi';
     } elseif(Kayttaja::checkEmailAvailability($email)) {
         $error = 'Käyttäjää ei löytynyt';
     } elseif(checkIfInvited($inviteobj->getId(), $grpId)) {
