@@ -184,4 +184,29 @@ class Yhteiso {
         $sqlcmd->execute(array($grpId));
     }
 
+    public static function insertInvitation($usrId, $grpId) {
+        $sql = "INSERT INTO kutsut VALUES(?, ?)";
+        $sqlcmd = getTietokantayhteys()->prepare($sql);
+        $sqlcmd->execute(array($usrId, $grpId));
+    }
+
+    public static function removeInvitation($usrId, $grpId) {
+        $sql = "DELETE FROM kutsut WHERE kayttaja_id = ? AND yhteiso_id = ?";
+        $sqlcmd = getTietokantayhteys()->prepare($sql);
+        $sqlcmd->execute(array($usrId, $grpId));
+    }
+
+    public static function checkIfInvited($usrId, $grpId) {
+        $sql = "SELECT * FROM kutsut WHERE kayttaja_id = ? AND yhteiso_id = ? LIMIT 1";
+        $query = getTietokantayhteys()->prepare($sql);
+        $query->execute(array($usrId, $grpId));
+
+        $result = $query->fetchObject();
+
+        if($result == null) {
+            return false;
+        }
+        return true;
+    }
+
 }

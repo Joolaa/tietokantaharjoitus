@@ -41,3 +41,9 @@ CREATE TABLE yhteison_johtajat (
     yhteiso_id INTEGER REFERENCES yhteiso(id),
     PRIMARY KEY(kayttaja_id, yhteiso_id)
 );
+
+CREATE TABLE kutsut (
+    kayttaja_id INTEGER REFERENCES kayttaja(id),
+    yhteiso_id INTEGER REFERENCES yhteiso(id),
+    PRIMARY KEY(kayttaja_id, yhteiso_id)
+);

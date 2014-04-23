@@ -98,12 +98,23 @@ class Kayttaja {
         }
     }
 
-    public static function checkEmailAvailability($email) {
+    public static function fetchByEmailOnly($email) {
         $sql = "SELECT * FROM Kayttaja Where email = ? LIMIT 1";
         $query = getTietokantayhteys()->prepare($sql);
         $query->execute(array($email));
 
         $result = $query->fetchObject();
+
+        if($result == null) {
+            return null;
+        }
+
+        return new Kayttaja($result->id, $result->email, $result->salasana,
+            $result->etunimi, $result->sukunimi);
+    }
+
+    public static function checkEmailAvailability($email) {
+        $result = self::fetchByEmailOnly($email);
 
         if($result == null) {
             return true;

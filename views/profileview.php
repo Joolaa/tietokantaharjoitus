@@ -6,7 +6,7 @@
 <?php foreach($data->supervisorships as $sprvsrship): ?>
         <tr>
         <td><?php echo $sprvsrship->getNimiEncoded() ?></td>
-        <td><a class="btn btn-primary">Hallinnoi</a></td>
+        <td><a href="groupmanagement.php?grpid=<?php echo $sprvsrship->getId(); ?>"class="btn btn-primary">Hallinnoi</a></td>
         <td><a href="groupresign.php?grpid=<?php echo $sprvsrship->getId(); ?>"
              class="btn btn-danger">Eroa</a></td>
         </tr>
