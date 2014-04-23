@@ -1,7 +1,20 @@
 <div class="leftelem">
+<?php if(!empty($invitations)): ?>
+    <p>Kutsut:</p>
+    <table class="table">
+<?php foreach($invitations as $invite): ?>
+        <tr>
+            <td><?php echo $invite->getNimi(); ?></td>
+            <td><a class="btn btn-primary">Hyväksy</a></td>
+            <td><a class="btn btn-warning">Hylkää</a></td>
+        </tr>
+<?php endforeach; ?>
+    </table>
+<?php endif; ?>
 <?php if(empty($data->memberships) && empty($data->supervisorships)):?>
     <p>Et ole minkään ryhmän jäsen.</p>
 <?php else: ?> 
+    <p>Jäsenyydet</p>
     <table class="table">
 <?php foreach($data->supervisorships as $sprvsrship): ?>
         <tr>

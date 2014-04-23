@@ -209,4 +209,21 @@ class Yhteiso {
         return true;
     }
 
+    public static function fetchInvitationsOfUser($usrId) {
+        $sql = "SELECT * FROM kutsut WHERE kayttaja_id = ?";
+        $query = getTietokantayhteys()->prepare($sql);
+        $query->execute(array($usrId));
+
+        $results = array();
+
+        foreach($query->fetchAll(PDO::FETCH_OBJ) as $result) {
+
+            $grp = Yhteiso::fetchGroupById($result->yhteiso_id);
+
+            $results[] = $grp;
+        }
+
+        return $results;
+    }
+
 }
