@@ -1,8 +1,8 @@
 <div class="leftelem">
-<?php if(!empty($invitations)): ?>
+<?php if(!empty($data->invitations)): ?>
     <p>Kutsut:</p>
     <table class="table">
-<?php foreach($invitations as $invite): ?>
+<?php foreach($data->invitations as $invite): ?>
         <tr>
             <td><?php echo $invite->getNimi(); ?></td>
             <td><a class="btn btn-primary">Hyväksy</a></td>
