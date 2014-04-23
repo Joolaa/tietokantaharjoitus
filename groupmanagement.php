@@ -23,7 +23,7 @@ if(isset($_POST['invite'])) {
         $error = 'Et voi kutsua itseäsi';
     } elseif(Kayttaja::checkEmailAvailability($email)) {
         $error = 'Käyttäjää ei löytynyt';
-    } elseif(checkIfInvited($inviteobj->getId(), $grpId)) {
+    } elseif(Yhteiso::checkIfInvited($inviteobj->getId(), $grpId)) {
         $error = 'Käyttäjä on jo kutsuttu';
     }
 
