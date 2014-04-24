@@ -235,7 +235,7 @@ class Yhteiso {
 
         foreach($query->fetchAll(PDO::FETCH_OBJ) as $result) {
 
-            $usr = Kayttaja::getUserById($result->id);
+            $usr = Kayttaja::getUserById($result->kayttaja_id);
 
             $results[] = $usr;
         }
