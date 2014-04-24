@@ -9,7 +9,7 @@ $grpid = null;
 if(isset($_GET['cancel'])) {
     $grpid = $_GET['cancel'];
 } elseif(isset($_GET['join'])) {
-    $grpid = $_GET['join']
+    $grpid = $_GET['join'];
     Yhteiso::insertNewMember($userobj->getId(), $grpid);
 }
 
