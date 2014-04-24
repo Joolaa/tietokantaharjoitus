@@ -226,4 +226,20 @@ class Yhteiso {
         return $results;
     }
 
+    public static function fetchInvitationsOfGroup($grpId) {
+        $sql = "SELECT * FROM kutsut WHERE yhteiso_id = ?";
+        $query = getTietokantayhteys()->prepare($sql);
+        $query->execute(array($grpId));
+
+        $results = array();
+
+        foreach($query->fetchAll(PDO::FETCH_OBJ) as $result) {
+
+            $usr = Kayttaja::getUserById($result->id);
+
+            $results[] = $usr;
+        }
+
+        return $results;
+    }
 }

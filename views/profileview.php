@@ -5,8 +5,10 @@
 <?php foreach($data->invitations as $invite): ?>
         <tr>
             <td><?php echo $invite->getNimi(); ?></td>
-            <td><a class="btn btn-primary">Hyväksy</a></td>
-            <td><a class="btn btn-warning">Hylkää</a></td>
+            <td><a href="invitehandler.php?join=<?php echo $invite->getId(); ?>"
+                  class="btn btn-primary">Hyväksy</a></td>
+            <td><a href="invitehandler.php?cancel=<?php echo $invite->getId(); ?>"
+                  class="btn btn-warning">Hylkää</a></td>
         </tr>
 <?php endforeach; ?>
     </table>

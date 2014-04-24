@@ -12,4 +12,23 @@
         </button>
         </div>
     </form>
+    <?php if(!empty($data->invitations)): ?>
+    <p>Lähetetyt kutsut:</p>
+    <table class="table">
+        <?php foreach($data->invitations as $invite): ?>
+        <tr>
+            <td><?php echo $invite->getNimi(); ?></td>
+            <td>
+                <form action="groupmanagement.php?grpid=<?php echo $data->grpid; ?>" method="POST">
+                    <input type="hidden" name="cancelsent" 
+                     value="<?php echo $invite->getId(); ?>">
+                    <button type="submit" class="btn btn-warning">
+                        Peru
+                    </button>
+                </form>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </table>
+    <?php endif; ?>
 </div>
