@@ -1,6 +1,7 @@
 <?php require 'alerttempl.php'; ?>
 <?php require 'noticetempl.php'; ?>
 <div class="leftelem">
+    <?php if(!empty($data->members)); ?>
     <p>Ryhmän jäsenet:</p>
     <table class="table">
     <?php foreach($data->members as $member): ?>
@@ -18,6 +19,7 @@
         </tr>
     <?php endforeach; ?>
     </table>
+    <?php endif; ?>
 </div>
 <div class="rightelem">
     <p>Kutsu käyttäjä ryhmään:</p>
