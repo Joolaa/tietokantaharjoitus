@@ -7,7 +7,7 @@
     <?php foreach($data->members as $member): ?>
         <tr>
             <td><?php echo $member->getKayttaja(); ?></td>
-            <td><form action="grouphoursofuser.php" method="POST">
+            <td><form action="grouphoursofuser.php" method="GET">
             <input type="hidden" name="grpid"
              value="<?php echo $data->grpid; ?>">
             <input type="hidden" name="usrid"

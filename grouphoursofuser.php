@@ -2,11 +2,12 @@
 require_once 'libs/common.php';
 require_once 'libs/models/kayttaja.php';
 require_once 'libs/models/yhteiso.php';
+require_once 'libs/models/tyoaika.php';
 
 $usrobj = isLoggedDirectToLogin();
 
-$usrid = $_POST['usrid'];
-$grpid = $_POST['grpid'];
+$usrid = $_GET['usrid'];
+$grpid = $_GET['grpid'];
 
 $perpage = 10;
 $page = 1;
