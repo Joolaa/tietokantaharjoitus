@@ -153,8 +153,8 @@ class Tyoaika {
         $amount, $page, $groupId) {
         $sql = "SELECT * FROM Tyoaikadata WHERE kayttaja_id = ? AND yhteiso_id = ? ORDER BY alkuaika DESC LIMIT ? OFFSET ?";
         $query = getTietokantayhteys()->prepare($sql);
-        $query->execute(array($userId, $amount,
-            ($page-1) * $amount, $groupId));
+        $query->execute(array($userId, $groupId, $amount,
+            ($page-1) * $amount));
 
         $results = array();
         foreach($query->fetchAll(PDO::FETCH_OBJ) as $result) {
