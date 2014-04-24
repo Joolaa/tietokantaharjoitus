@@ -11,8 +11,6 @@ if(!isset($_GET['grpid'])) {
 
 $grpid = $_GET['grpid'];
 
-$invitations = Yhteiso::fetchInvitationsOfGroup($grpid);
-
 $error = null;
 $notice = null;
 
@@ -37,6 +35,8 @@ if(isset($_POST['invite'])) {
 } elseif(isset($_POST['cancelsent'])) {
     Yhteiso::removeInvitation($_POST['cancelsent'], $grpid);
 }
+
+$invitations = Yhteiso::fetchInvitationsOfGroup($grpid);
 
 showView('groupmanageview.php', array(
     'title' => 'Hallinnoi ryhmää',
