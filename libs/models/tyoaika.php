@@ -149,10 +149,38 @@ class Tyoaika {
         return $results;
     }
 
+    public static function searchPagedByGroupSortByStartTime($userId,
+        $amount, $page, $groupId) {
+        $sql = "SELECT * FROM Tyoaikadata WHERE kayttaja_id = ? AND yhteiso_id = ? ORDER BY alkuaika DESC LIMIT ? OFFSET ?";
+        $query = getTietokantayhteys()->prepare($sql);
+        $query->execute(array($userId, $amount,
+            ($page-1) * $amount, $groupId));
+
+        $results = array();
+        foreach($query->fetchAll(PDO::FETCH_OBJ) as $result) {
+            $tyoaika = new Tyoaika($result->id,
+                $result->alkuaika, $result->loppuaika,
+                $result->aihe, $result->kayttaja_id,
+                $result->yhteiso_id);
+
+            $results[] = $tyoaika;
+        }
+
+        return $results;
+    }
+
     public static function countTotalRowsOfUser($userId) {
         $sql = "SELECT count(*) FROM Tyoaikadata WHERE kayttaja_id = ?";
         $query = getTietokantayhteys()->prepare($sql);
         $query->execute(array($userId));
+
+        return $query->fetchColumn();
+    }
+
+    public static function countRowsOfUserByGroup($userId, $groupId) {
+        $sql = "SELECT count(*) FROM Tyoaikadata WHERE kayttaja_id = ? AND yhteiso_id = ?";
+        $query = getTietokantayhteys()->prepare($sql);
+        $query->execute(array($userId, $groupId));
 
         return $query->fetchColumn();
     }

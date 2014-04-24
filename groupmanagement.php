@@ -37,11 +37,13 @@ if(isset($_POST['invite'])) {
 }
 
 $invitations = Yhteiso::fetchInvitationsOfGroup($grpid);
+$members = Yhteiso::fetchAllMembers($grpid);
 
 showView('groupmanageview.php', array(
     'title' => 'Hallinnoi ryhmää',
     'grpid' => $grpid,
     'notice' => $notice,
     'error' => $error,
-    'invitations' => $invitations
+    'invitations' => $invitations,
+    'members' => $members
 ));
