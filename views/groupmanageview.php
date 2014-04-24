@@ -17,7 +17,7 @@
     <table class="table">
         <?php foreach($data->invitations as $invite): ?>
         <tr>
-            <td><?php echo $invite->getNimi(); ?></td>
+            <td><?php echo $invite->getKayttaja(); ?></td>
             <td>
                 <form action="groupmanagement.php?grpid=<?php echo $data->grpid; ?>" method="POST">
                     <input type="hidden" name="cancelsent" 
