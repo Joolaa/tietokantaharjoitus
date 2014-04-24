@@ -35,7 +35,7 @@ if(isset($_POST['invite'])) {
     }
 
 } elseif(isset($_POST['cancelsent'])) {
-    Yhteiso::removeInvitation($_POST['cancelsent']);
+    Yhteiso::removeInvitation($_POST['cancelsent'], $grpid);
 }
 
 showView('groupmanageview.php', array(
