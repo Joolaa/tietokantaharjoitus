@@ -30,5 +30,6 @@ showView('listusershoursingroup.php', array(
     'pagenum' => $page,
     'entriesPerPage' => $perpage,
     'grpid' => $grpid,
-    'usrid' => $usrid
+    'usrid' => $usrid,
+    'amountOfPages' => $resultsamount
 ));
