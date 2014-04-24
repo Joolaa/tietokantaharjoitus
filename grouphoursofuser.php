@@ -31,5 +31,5 @@ showView('listusershoursingroup.php', array(
     'entriesPerPage' => $perpage,
     'grpid' => $grpid,
     'usrid' => $usrid,
-    'amountOfPages' => $resultsamount
+    'amountOfPages' => ceil($resultsamount/$perpage);
 ));
