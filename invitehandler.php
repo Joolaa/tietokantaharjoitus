@@ -1,7 +1,7 @@
 <?php
 require_once 'libs/common.php';
 require_once 'libs/models/kayttaja.php';
-require_once 'libs/models/yhteiso';
+require_once 'libs/models/yhteiso.php';
 
 $userobj = isLoggedDirectToLogin();
 $grpid = null;
