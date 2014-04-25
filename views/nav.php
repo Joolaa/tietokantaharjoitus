@@ -14,8 +14,8 @@ function makepillactive_pohja($currentpage, $thispage) {
 <?php if(!isLogged()): ?>
 <nav class="navbar navbar-default" role="navigation">
     <ul class="nav nav-pills navbar-left">
-        <li<?php makepillactive_pohja('index.php', $page);?>>
-            <a href="#">Etusivu</a>
+        <li<?php makepillactive_pohja('frontpage.php', $page);?>>
+            <a href="../index.php">Etusivu</a>
         </li>
     </ul>
     <ul class="nav nav-pills navbar-right">
