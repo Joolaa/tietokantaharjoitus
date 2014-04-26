@@ -40,6 +40,16 @@ function echoFormatHoursMins($dateinterval) {
     echo $dateinterval->format('%h h, %i min');
 }
 
+function echoFormatHoursDecimal($dateinterval) {
+    $hours = (float) $dateinterval->h;
+    $hours += $dateinterval->y * 365 * 24;
+    $hours += $dateinterval->m * 30 * 24;
+    $hours += $dateinterval->d * 24;
+    $hours += (float) $dateinterval->i / 60;
+
+    echo round($hours, 2) . ' h';
+}
+
 function makeDate($days, $months,
     $years, $hours, $minutes) {
         return DateTime::createFromFormat('d-m-Y H:i',

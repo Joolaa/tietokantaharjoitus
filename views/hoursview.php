@@ -49,7 +49,7 @@ Näytä kerralla:
             <?php echoFormatDateFinnish($entry->getLoppuaika()); ?>
             </td>
             <td>
-            <?php echoFormatHoursMins($entry->getTunteja()); ?>
+            <?php echoFormatHoursDecimal($entry->getTunteja()); ?>
             </td>
             <td>
             <?php echo $entry->getYhteisoNimi(); ?>
