@@ -1,5 +1,3 @@
-/* TODO: 'on delete' ja muut käyttörajoitteet puuttuvat */
-
 CREATE TABLE kayttaja (
     id SERIAL PRIMARY KEY,
     email VARCHAR(50),
@@ -27,25 +25,25 @@ CREATE TABLE tyoaikadata (
     alkuaika TIMESTAMP,
     loppuaika TIMESTAMP,
     aihe VARCHAR(1000),
-    kayttaja_id INTEGER REFERENCES kayttaja(id),
-    asiakas_id INTEGER REFERENCES asiakas(id),
-    yhteiso_id INTEGER REFERENCES yhteiso(id)
+    kayttaja_id INTEGER REFERENCES kayttaja(id) ON DELETE CASCADE,
+    asiakas_id INTEGER REFERENCES asiakas(id) ON DELETE CASCADE,
+    yhteiso_id INTEGER REFERENCES yhteiso(id) ON DELETE CASCADE
 );
 
 CREATE TABLE yhteiso_kayttaja (
-    kayttaja_id INTEGER REFERENCES kayttaja(id),
-    yhteiso_id INTEGER REFERENCES yhteiso(id),
+    kayttaja_id INTEGER REFERENCES kayttaja(id) ON DELETE CASCADE,
+    yhteiso_id INTEGER REFERENCES yhteiso(id) ON DELETE CASCADE,
     PRIMARY KEY(kayttaja_id, yhteiso_id)
 );
 
 CREATE TABLE yhteison_johtajat (
-    kayttaja_id INTEGER REFERENCES kayttaja(id),
-    yhteiso_id INTEGER REFERENCES yhteiso(id),
+    kayttaja_id INTEGER REFERENCES kayttaja(id) ON DELETE CASCADE,
+    yhteiso_id INTEGER REFERENCES yhteiso(id) ON DELETE CASCADE,
     PRIMARY KEY(kayttaja_id, yhteiso_id)
 );
 
 CREATE TABLE kutsut (
-    kayttaja_id INTEGER REFERENCES kayttaja(id),
-    yhteiso_id INTEGER REFERENCES yhteiso(id),
+    kayttaja_id INTEGER REFERENCES kayttaja(id) ON DELETE CASCADE,
+    yhteiso_id INTEGER REFERENCES yhteiso(id) ON DELETE CASCADE,
     PRIMARY KEY(kayttaja_id, yhteiso_id)
 );
