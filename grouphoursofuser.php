@@ -9,6 +9,10 @@ $usrobj = isLoggedDirectToLogin();
 $usrid = $_GET['usrid'];
 $grpid = $_GET['grpid'];
 
+if(!Yhteiso::checkPrivileges($usrobj->getId(), $grpid) {
+    header('Location: profile.php');
+}
+
 $perpage = 10;
 $page = 1;
 

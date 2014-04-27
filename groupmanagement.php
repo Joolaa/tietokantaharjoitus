@@ -11,6 +11,10 @@ if(!isset($_GET['grpid'])) {
 
 $grpid = $_GET['grpid'];
 
+if(!Yhteiso::checkPrivileges($userobj->getId(), $grpid)) {
+    header('Location: profile.php');
+}
+
 $error = null;
 $notice = null;
 

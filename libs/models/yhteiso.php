@@ -242,4 +242,18 @@ class Yhteiso {
 
         return $results;
     }
+
+    public static function checkPrivileges($usrId, $grpId) {
+        $sql = "SELECT * FROM yhteison_johtajat WHERE kayttaja_id = ? AND yhteiso_id = ?";
+        $query = getTietokantayhteys()->prepare($sql);
+        $query->execute(array($usrId, $grpId));
+
+        $result = $query->fetchObject();
+
+        if($result == null) {
+            return false;
+        }
+
+        return true;
+    }
 }

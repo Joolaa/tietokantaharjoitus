@@ -13,12 +13,14 @@ CREATE TABLE yhteiso (
     nimi varchar(30)
 );
 
+/*
 CREATE TABLE asiakas (
     id SERIAL PRIMARY KEY,
     nimi VARCHAR(30),
     oletustuntitaksa REAL,
     yhteiso_id INTEGER REFERENCES yhteiso(id)
 );
+*/
 
 CREATE TABLE tyoaikadata (
     id SERIAL PRIMARY KEY,

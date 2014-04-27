@@ -1,6 +1,17 @@
 <?php
 require_once "libs/tietokantayhteys.php";
 
+function hash_pass($password) {
+    return crypt($password);
+}
+
+function verify_pass($password, $hashed) {
+    if(crypt($password, $hashed) === $hashed) {
+        return true;
+    }
+    return false;
+}
+
 class Kayttaja {
 
     private $id;
@@ -69,8 +80,7 @@ class Kayttaja {
         
         $result = $query->fetchObject();
 
-        //HUOM HUOM, vain väliaikaisesti tässä muodossa testitarkoituksessa
-        if(!empty($result) && (strcmp($salasana, $result->salasana) === 0)) {
+        if(!empty($result) && (verify_pass($salasana, $result->salasana))) {
             return $result->id;
         }
 
@@ -181,7 +191,7 @@ class Kayttaja {
 
         $sql = 'INSERT INTO Kayttaja VALUES(DEFAULT, ?, ?, ?, ?)';
         $sqlcmd = getTietokantayhteys()->prepare($sql);
-        $sqlcmd->execute(array($this->kayttaja, $this->salasana,
+        $sqlcmd->execute(array($this->kayttaja, hash_pass($this->salasana),
             $this->etunimi, $this->sukunimi));
 
         return null;
