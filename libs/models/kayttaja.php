@@ -211,7 +211,7 @@ class Kayttaja {
 
         $sql = 'UPDATE kayttaja SET email = ?, salasana = ?, etunimi = ?, sukunimi = ? WHERE id = ?';
         $sqlcmd = getTietokantayhteys()->prepare($sql);
-        $sqlcmd->execute(array($this->kayttaja, $this->salasana,
+        $sqlcmd->execute(array($this->kayttaja, hash_pass($this->salasana),
             $this->etunimi, $this->sukunimi, $this->id));
 
         return null;
