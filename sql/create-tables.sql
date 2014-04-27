@@ -26,7 +26,6 @@ CREATE TABLE tyoaikadata (
     loppuaika TIMESTAMP,
     aihe VARCHAR(1000),
     kayttaja_id INTEGER REFERENCES kayttaja(id) ON DELETE CASCADE,
-    asiakas_id INTEGER REFERENCES asiakas(id) ON DELETE CASCADE,
     yhteiso_id INTEGER REFERENCES yhteiso(id) ON DELETE CASCADE
 );
 
