@@ -170,12 +170,24 @@ class Yhteiso {
         $sql = "DELETE FROM yhteiso_kayttaja WHERE kayttaja_id = ? AND yhteiso_id = ?";
         $sqlcmd = getTietokantayhteys()->prepare($sql);
         $sqlcmd->execute(array($usrId, $grpId));
+
+        $left = self::fetchAllMemberships($grpId);
+
+        if(empty($left)) {
+            self::deleteGroup($grpId);
+        }
     }
 
     public static function removeSupervisor($usrId, $grpId) {
         $sql = "DELETE FROM yhteison_johtajat WHERE kayttaja_id = ? AND yhteiso_id = ?";
         $sqlcmd = getTietokantayhteys()->prepare($sql);
         $sqlcmd->execute(array($usrId, $grpId));
+
+        $left = self::fetchAllSupervisorships($grpId);
+
+        if(empty($left)) {
+            self::deleteGroup($grpId);
+        }
     }
 
     public static function deleteGroup($grpId) {

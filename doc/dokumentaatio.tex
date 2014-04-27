@@ -29,6 +29,10 @@ Users-palvelinta apuna käyttäen. Työssä käytetään Apache-palvelinsovellus
 sekä PHP-kieltä. Tietokannan hallintajärjestelmänä käytetään
 Users-palvelimella paremmin tuettua PostgreSQL-järjestelmää.
 
+\newpage
+\tableofcontents
+\newpage
+
 \section{Yleiskuva järjestelmästä}
 \subsection{Käyttäjäryhmät} Käyttäjät voidaan alustavasti eritellä kolmeen
 yleisprofiiliin:
@@ -159,24 +163,6 @@ käsiksi kaikkiin yhteisöön liittyviin tietoihin, joihin lukeutuvat
 esimerkiksi asiakkaiden oletustuntitaksat sekä yhteisön jäsenten 
 kirjaamat tunnit. Käyttäjä voi olla usean eri yhteisön johtaja.
 
-\subsection{Asiakas}
-\begin{center}
-\begin{tabular}{| l | l | l |}
-    \hline
-    \emph{Attribuutti} & \emph{Tyyppi} & \emph{Kuvaus} \\ \hline
-    Nimi & string & Asiakkaan nimi, käytännössä jonkin yrityksen nimi \\
-    \hline
-    Oletustuntitaksa & decimal & Asiakkaan oletustuntitaksa euroissa \\
-    \hline
-\end{tabular}
-\end{center}
-
-Asiakas kuuluu vain yhteen yhteisöön, siitä huolimatta että käytännössä
-sama asiakas saattaa tilata palveluja usealta eri työyhteisöltä. Tämä
-siksi koska tuntitaksat saattavat kuitenkin vaihdella eri työyhteisöillä,
-joten on helpompaa toteuttaa asiakkaan ja yhteisön yhteys näin. 
-Asiakas voi liittyä työaikadataan, mutta se tapahtuu välillisesti
-yhteisön kautta.
 
 \newpage
 \section{Relaatiotietokantakaavio}
@@ -238,9 +224,11 @@ kansioiden nimet on kirjoitettu pienillä alkukirjaimilla.
 
 \section{Käyttöliittymä ja järjestelmän komponentit} Ohessa on esitettynä
 suppea kaavio joka kuvaa, miten sivustolla navigointi tapahtuu.
+Kaavion yksinkertaistamiseksi jotkin sivut jotka koostuvat vain tekstistä
+tai pelkästä yhdestä lomakerivistä on jätetty pois kuvasta.
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{kayttoliittymakaavio.png}
+    \includegraphics[width=0.7\textwidth]{kayttoliittymakaavio.png}
     \caption{\small Sivustolla navigointi}
 \end{figure}
 
@@ -249,10 +237,48 @@ sovelluksen tiedostot sellaiseen hakemistoon, joka näkyy
 verkkoon. Tietokantataulut voi pystyttää suunnistamalla
 komentotulkilla 'sql'-kansioon ja suorittamalla käskyn
 'psql < create-tables.sql'. Tietokantataulut voi ajaa
-alas käskyllä 'psql < drop-tables.sql'.
+alas käskyllä 'psql < drop-tables.sql'. Tietokantataulujen
+pystyttämiseen ja alasajoon vaadittavat tiedostot löytyvät
+projektin 'sql'-kansiosta.
 
 \section{Käyttöohje} Sovellusta voi käyttää osoitteessa
-'jola.users.cs.helsinki.fi/login.php'.
-Testikäyttäjätunnus on 'test@testing.com' ja
-testisalasana testikäyttäjätunnukselle on 'salasana'.
+'jola.users.cs.helsinki.fi'.
+Kirjautumattomilla käyttäjillä on pääsy ainoastaan etusivulle, 
+kirjautumissivulle ja rekisteröitymissivulle. Käyttäjän kirjauduttua
+käyttäjälle näytetään profiilisivu, jossa on lueteltuna ryhmät, joissa
+käyttäjä on jäsenenä, kutsut niihin ryhmiin joihin käyttäjä on kutsuttu,
+työtuntien tarkastelu-nappi, asetukset-nappi sekä uloskirjautumisnappi.
+Työtuntien tarkastelussa on myös mahdollista lisätä ja muokata
+työtuntitietoja. Työtuntien lisäys onnistuu vain jos käyttäjä on jonkin
+ryhmän jäsen.
+Jos käyttäjällä on hallinnointioikeudet jossakin ryhmässä, hän voi
+hallinnoida ryhmää painamalla painiketta sen ryhmän kohdalla, mitä ryhmää
+haluaa hallinnoida. Hallinnointisivulla voi tarkastella muita ryhmän
+jäseniä ja heidän kirjaamia työtunteja sekä kutsua uusia jäseniä ryhmään.
+
+\section{Testaus} Projektiin viimeiseksi lisätyt ominaisuudet ennen
+palautusta ovat käyttäjän hallinnointioikeuksien tarkistus jos käyttäjä
+yrittää päästä sivulle joka vaatii jonkin ryhmän hallinnoitioikeuksia,
+salasanojen tallennus hajautetussa muodossa sekä automaattinen ryhmän
+poistaminen jos ryhmässä ei enää ole jäseniä tai hallinnoijia. Mahdolliset
+bugit sovelluksessa siis todennäköisesti liittyvät joihinkin näistä
+ominaisuuksista, koska niitä on testattu vähiten. Sovellusta on kuitenkin
+testattu monipuolisesti ja siinä ei pitäisi enää olla suuria virheitä.
+
+\section{Loppusanat} Tämän dokumentin alkuosa on jätetty alkuperäiseen
+muotoonsa, koska sen on tarkoitus havainnollistaa, millainen sovelluksen
+oli alunperin tarkoitus olla. Tärkein muutos alkuperäiseen suunnitelmaan
+verrattuna lienee asiakkaiden lisäys-toiminnon puuttuminen, joka jätettiin
+sovelluksesta pois ajanpuutten vuoksi. Muita muutoksia ovat 'kutsut'-taulun
+lisääminen tietokantatauluihin sekä se, että sovelluksessa käytetään sanaa 
+'ryhmä' tarkoittamaan sitä, mitä dokumentaatiossa kutsutaan yhteisöksi.
+
+\subsection{Omat kokemukset} Kurssi oli oikein opettavainen, mutta myös
+haastava ja aikaavievä, koska en ole aiemmin tehnyt web-sovelluksia, enkä
+käyttänyt PHP-kieltä. Uskon että kirjoittamastani koodista pystyy selvästi
+näkemään, mikä on kurssin alkupuolella kirjoitettua ja mikä on
+loppupuolella kirjoitettua. Minulla oli muutamalla ensimmäisellä viikolla
+vaikeuksia ymmärtää myös koko MVC-mallia, varsinkin kontrollerin roolia
+systeemissä. Tämä kuitenkin selveni työn edetessä kun ymmärsin paremmin
+miten web-sovellukset yleisesti ottaen toimivat.
 \end{document}
